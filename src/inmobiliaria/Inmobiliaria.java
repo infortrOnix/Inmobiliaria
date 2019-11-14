@@ -15,7 +15,7 @@ public class Inmobiliaria {
     public static void main(String[] args) {
         // TODO code application logic here
        
-        Propietario lazaro1=new Propietario("10000000","Gutierrez","Martin","Paraguay s/n",23187066,"aguanteKris@hotmail.com");
+        Propietario lazaro1=new Propietario(10000000,"Gutierrez","Martin","Paraguay s/n",23187066,"aguanteKris@hotmail.com");
         
         ConexionN con=new ConexionN();
         PropietarioData lazaroD=new PropietarioData(con);
