@@ -186,6 +186,7 @@ public class PropietarioData {
                 propietario.setTelefono(resultSet.getInt("telefono"));
                 propietario.setEmail(resultSet.getString("email"));
                 
+                
                 listaPropietario.add(propietario);
                 
             }
