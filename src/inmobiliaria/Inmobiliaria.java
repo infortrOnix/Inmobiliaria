@@ -21,7 +21,7 @@ public class Inmobiliaria {
         PropietarioData lazaroD=new PropietarioData(con);
         
        // lazaroD.guardarPropietario(lazaro1);//Ok
-       // lazaroD.actualizarPropietario(lazaro1);//Ok
+        lazaroD.actualizarPropietario(lazaro1);//Ok
        //lazaroD.borrarPropietario(20187066);//Ok
        
        /*
