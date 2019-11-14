@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,7 +50,7 @@ public class PropietarioData {
             
             ps.executeUpdate();
             System.out.println("Propietario ID : "+propietario.getCuilPropietario()+" almacenado.");
-            
+            JOptionPane.showMessageDialog(null,"Propietario ID : "+propietario.getCuilPropietario()+" almacenado.","Información",JOptionPane.INFORMATION_MESSAGE );
             ResultSet rs=ps.getGeneratedKeys();
                                 
             ps.close();
@@ -57,6 +58,7 @@ public class PropietarioData {
         }
         catch (SQLException ex){
             System.out.println("Error al Inserta Propietario !");
+            JOptionPane.showMessageDialog(null,"Error al Inserta Propietario !","Advertencia",JOptionPane.WARNING_MESSAGE );
             Logger.getLogger(PropietarioData.class.getName()).log(Level.SEVERE, null,ex);
         }
     }
@@ -82,12 +84,13 @@ public class PropietarioData {
             ps.executeUpdate();
             
             System.out.println("Propietario CUIL : "+propietario.getCuilPropietario()+" actualizado.");
-            
+            JOptionPane.showMessageDialog(null,"Propietario CUIL : "+propietario.getCuilPropietario()+" actualizado.","Información",JOptionPane.INFORMATION_MESSAGE );
             ps.close();
             
         }
         catch (SQLException ex){
             System.out.println("no se pudo Actualizar el Propietario");
+            JOptionPane.showMessageDialog(null,"no se pudo Actualizar el Propietario","Advertencia",JOptionPane.WARNING_MESSAGE );
             Logger.getLogger(PropietarioData.class.getName()).log(Level.SEVERE, null,ex);
         }
     }
@@ -106,11 +109,13 @@ public class PropietarioData {
             ps.executeUpdate();
             
                 System.out.println("Propietario :"+idPropietario+"  fue eliminado.");
+                JOptionPane.showMessageDialog(null,"Propietario CUIL : "+idPropietario+" fue eliminado.","Información",JOptionPane.INFORMATION_MESSAGE );
             
             ps.close();
             
         }
         catch (SQLException ex){
+            JOptionPane.showMessageDialog(null,"no se pudo borrar el Propietario "+idPropietario,"Advertencia",JOptionPane.WARNING_MESSAGE );
             Logger.getLogger(PropietarioData.class.getName()).log(Level.SEVERE, null,ex);
         }
             
@@ -145,6 +150,7 @@ public class PropietarioData {
             }
         } catch (SQLException ex) {
             System.out.println("No se pudo encontrar el Propietario ID :"+idPropietario);
+            JOptionPane.showMessageDialog(null,"No se pudo encontrar el Propietario ID :"+idPropietario,"Advertencia",JOptionPane.WARNING_MESSAGE );
             Logger.getLogger(PropietarioData.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -184,6 +190,8 @@ public class PropietarioData {
                 
             }
         } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null,"No se pudo listar los Propietarios ","Advertencia",JOptionPane.WARNING_MESSAGE );
             Logger.getLogger(PropietarioData.class.getName()).log(Level.SEVERE, null, ex);
         }
         
