@@ -2,6 +2,8 @@
 package inmobiliaria;
 
 import Modelo.ConexionN;
+import Modelo.Inmueble;
+import Modelo.InmuebleData;
 import Modelo.Propietario;
 import Modelo.PropietarioData;
 
@@ -15,19 +17,20 @@ public class Inmobiliaria {
     public static void main(String[] args) {
         // TODO code application logic here
        
-        Propietario lazaro1=new Propietario(10000000,"Gutierrez","Martin","Paraguay s/n",23187066,"aguanteKris@hotmail.com");
+       //***********Prueba de Propietario***************** 
+       //Propietario lazaro1=new Propietario(10000000,"Gutierrez","Martin","Paraguay s/n",23187066,"aguanteKris@hotmail.com");
         
-        ConexionN con=new ConexionN();
-        PropietarioData lazaroD=new PropietarioData(con);
+       ConexionN con=new ConexionN();
+      // PropietarioData lazaroD=new PropietarioData(con);
         
        // lazaroD.guardarPropietario(lazaro1);//Ok
-        lazaroD.actualizarPropietario(lazaro1);//Ok
+       // lazaroD.actualizarPropietario(lazaro1);//Ok
        //lazaroD.borrarPropietario(20187066);//Ok
        
-       /*
-       lazaroD.buscarPropietario(16456189);
-       System.out.println(lazaroD.buscarPropietario(16456189).getApellidoPropietario());
-       */
+       
+       //lazaroD.buscarPropietario(16456189);
+      // System.out.println(lazaroD.buscarPropietario(16456189).getApellidoPropietario());
+       
        
         /*
         lazaroD.listarPropietario();
@@ -41,6 +44,14 @@ public class Inmobiliaria {
                     lazaroD.listarPropietario().get(i).getEmail());
         }
         */
+        
+         //***********FIN   Prueba de Propietario***************** 
+         
+         
+         
+         
+         
+         
     }
     
 }

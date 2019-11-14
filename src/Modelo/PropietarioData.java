@@ -18,8 +18,7 @@ import javax.swing.JOptionPane;
  * @author Norberto
  */
 public class PropietarioData {
-    
-    
+   
     
    //crea conexion 
     Connection con = null;
@@ -31,8 +30,6 @@ public class PropietarioData {
     public PropietarioData() {
     }
 
-    
-    
     
     
     //Cargar
@@ -72,7 +69,6 @@ public class PropietarioData {
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             
-            
             ps.setInt(6, propietario.getCuilPropietario());
             ps.setString(1, propietario.getApellidoPropietario());
             ps.setString(2,propietario.getNombrePropietario());
@@ -103,15 +99,15 @@ public class PropietarioData {
             String sql="DELETE FROM propietario WHERE cuilPropietario=?";
            
             try{
-            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, idPropietario);
+                PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                ps.setInt(1, idPropietario);
             
-            ps.executeUpdate();
+                ps.executeUpdate();
             
                 System.out.println("Propietario :"+idPropietario+"  fue eliminado.");
                 JOptionPane.showMessageDialog(null,"Propietario CUIL : "+idPropietario+" fue eliminado.","Información",JOptionPane.INFORMATION_MESSAGE );
             
-            ps.close();
+                ps.close();
             
         }
         catch (SQLException ex){
