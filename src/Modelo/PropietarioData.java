@@ -187,6 +187,7 @@ public class PropietarioData {
                 propietario.setEmail(resultSet.getString("email"));
                 
                 
+                
                 listaPropietario.add(propietario);
                 
             }
