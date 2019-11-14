@@ -20,15 +20,14 @@ public class ConexionN {
     public Connection getConexion(){
         
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.mariadb.jdbc.Driver");
             con=DriverManager.getConnection(url, user, pass);
             System.out.println("Conexion Exitosa");
             
         }
         catch (SQLException | ClassNotFoundException e){
-                    
-                    System.out.println("NO CONECTA !!!");
-                    //e.printStackTrace();
+            e.printStackTrace();//Nos dice qué sucedió y en qué parte del código sucedió el error
+            System.out.println( "ERROR: Problema con la conexion a la BD..."+e.getMessage());
     }
         return con;
     }

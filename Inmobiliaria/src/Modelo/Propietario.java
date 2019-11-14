@@ -7,7 +7,7 @@ package Modelo;
  */
 public class Propietario {
     
-    private String cuilPropietario;
+    private int cuilPropietario;
     private String apellidoPropietario;
     private String nombrePropietario;
     private String domicilioPropietario;
@@ -18,7 +18,7 @@ public class Propietario {
         
     }
 
-    public Propietario(String cuilPropietario, String apellidoPropietario, String nombrePropietario, String domicilioPorpietario, int telefono, String email) {
+    public Propietario(int cuilPropietario, String apellidoPropietario, String nombrePropietario, String domicilioPorpietario, int telefono, String email) {
         this.cuilPropietario = cuilPropietario;
         this.apellidoPropietario = apellidoPropietario;
         this.nombrePropietario = nombrePropietario;
@@ -27,11 +27,11 @@ public class Propietario {
         this.email = email;
     }
 
-    public String getCuilPropietario() {
+    public int getCuilPropietario() {
         return cuilPropietario;
     }
 
-    public void setCuilPropietario(String cuilPropietario) {
+    public void setCuilPropietario(int cuilPropietario) {
         this.cuilPropietario = cuilPropietario;
     }
 

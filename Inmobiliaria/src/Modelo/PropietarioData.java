@@ -40,7 +40,7 @@ public class PropietarioData {
         
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, propietario.getCuilPropietario());
+            ps.setInt(1, propietario.getCuilPropietario());
             ps.setString(2, propietario.getApellidoPropietario());
             ps.setString(3,propietario.getNombrePropietario());
             ps.setString(4,propietario.getDomicilioPropietario());
@@ -71,7 +71,7 @@ public class PropietarioData {
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             
             
-            ps.setString(6, propietario.getCuilPropietario());
+            ps.setInt(6, propietario.getCuilPropietario());
             ps.setString(1, propietario.getApellidoPropietario());
             ps.setString(2,propietario.getNombrePropietario());
             ps.setString(3,propietario.getDomicilioPropietario());
@@ -135,7 +135,7 @@ public class PropietarioData {
             while(resultSet.next()){//el while recorre toda la BD
                 
                 propietario = new Propietario();
-                propietario.setCuilPropietario(resultSet.getString("cuilPropietario"));
+                propietario.setCuilPropietario(resultSet.getInt("cuilPropietario"));
                 propietario.setApellidoPropietario(resultSet.getString("apellido"));
                 propietario.setNombrePropietario(resultSet.getString("nombre"));
                 propietario.setDomicilioPropietario(resultSet.getString("domicilio"));
@@ -173,7 +173,7 @@ public class PropietarioData {
             while(resultSet.next()){//el while recorre toda la BD
                 propietario=new Propietario();
                 
-                propietario.setCuilPropietario(resultSet.getString("cuilPropietario"));
+                propietario.setCuilPropietario(resultSet.getInt("cuilPropietario"));
                 propietario.setApellidoPropietario(resultSet.getString("apellido"));
                 propietario.setNombrePropietario(resultSet.getString("nombre"));
                 propietario.setDomicilioPropietario(resultSet.getString("domicilio"));

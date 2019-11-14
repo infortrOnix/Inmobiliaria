@@ -1,29 +1,28 @@
 
 package inmobiliaria;
 
-import Modelo.ConexionN;
-import Modelo.Propietario;
-import Modelo.PropietarioData;
+import Modelo.*;
 
 /**
  *
- * @author Norberto
+ * @author GrupoCristina
+ * 
  */
 public class Inmobiliaria {
 
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        
        
-        Propietario lazaro1=new Propietario("10000000","Gutierrez","Martin","Paraguay s/n",23187066,"aguanteKris@hotmail.com");
+        Propietario lazaro1=new Propietario(10000000,"Gutierrez","Martin","Paraguay s/n",23187066,"aguanteKris@hotmail.com");
         
         ConexionN con=new ConexionN();
         PropietarioData lazaroD=new PropietarioData(con);
         
-       // lazaroD.guardarPropietario(lazaro1);//Ok
-       // lazaroD.actualizarPropietario(lazaro1);//Ok
-       //lazaroD.borrarPropietario(20187066);//Ok
-       
+       //lazaroD.guardarPropietario(lazaro1);//Ok
+       //lazaroD.actualizarPropietario(lazaro1);//Ok
+       //lazaroD.borrarPropietario(10000000);//Ok
+       lazaroD.buscarPropietario(10000000);
        /*
        lazaroD.buscarPropietario(16456189);
        System.out.println(lazaroD.buscarPropietario(16456189).getApellidoPropietario());
@@ -41,6 +40,25 @@ public class Inmobiliaria {
                     lazaroD.listarPropietario().get(i).getEmail());
         }
         */
+        
+        //Aqui agrego el codigo para probar lo que hice Daniel-San
+        tipoInmueble tipo = new tipoInmueble();
+        tipo.setIdTipo(1);
+        
+        Inmueble i = new Inmueble();
+        i.setDireccion("Un lugar muy lejano");
+        i.setAlturaInmueble(999);
+        i.setCodigoZona(888);
+        i.setDisponible("No");
+        i.setPrecioBase(3000000);
+        i.setSuperficie(88.8);
+        
+        InmuebleData id = new InmuebleData(con);
+        id.guardarInmueble(i, lazaro1, tipo);
+        //i.setIdInmueble(10);
+        //id.buscarInmueble(i);
+        //id.borrarInmueble(9);
+        //id.actualizarInmueble(i, lazaro1, tipo);
     }
     
 }
