@@ -23,12 +23,14 @@ public class ConexionN {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection(url, user, pass);
             System.out.println("Conexion Exitosa...");
+            JOptionPane.showMessageDialog(null,"Conexion Exitosa...","Información",JOptionPane.INFORMATION_MESSAGE );
             
         }
         catch (SQLException | ClassNotFoundException e){
                     
                     System.out.println("NO logra CONECTAR !!!");
                     //e.printStackTrace();
+                    JOptionPane.showMessageDialog(null,"NO logra CONECTAR !!!","Advertencia",JOptionPane.WARNING_MESSAGE );
     }
         return con;
     }
