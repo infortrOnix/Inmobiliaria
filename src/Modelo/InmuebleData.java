@@ -40,7 +40,7 @@ public class InmuebleData {
             
             PreparedStatement ps = con.prepareStatement(sql);
             
-            ps.setInt(1, propietario.getCuilPropietario());
+            ps.setInt(1, propietario.getCuitPropietario());
             ps.setInt(2, tipoInmueble.getIdTipo());
             ps.setString(3, inmueble.getDireccion());
             ps.setInt(4, inmueble.getAlturaInmueble());
@@ -132,7 +132,7 @@ public class InmuebleData {
                 + "WHERE idInmueble=?";
             
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, propietario.getCuilPropietario());
+            ps.setInt(1, propietario.getCuitPropietario());
             ps.setInt(2, tipoInmueble.getIdTipo());
             ps.setString(3, inmueble.getDireccion());
             ps.setInt(4, inmueble.getAlturaInmueble());

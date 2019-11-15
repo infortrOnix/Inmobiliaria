@@ -34,11 +34,11 @@ public class PropietarioData {
     
     //Cargar
     public void guardarPropietario(Propietario propietario){
-        String sql="INSERT INTO propietario(cuilPropietario,apellido,nombre,domicilio, telefono, email) VALUES(?,?,?,?,?,?);";
+        String sql="INSERT INTO propietario(cuitPropietario,apellido,nombre,domicilio, telefono, email) VALUES(?,?,?,?,?,?);";
         
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, propietario.getCuilPropietario());
+            ps.setInt(1, propietario.getCuitPropietario());
             ps.setString(2, propietario.getApellidoPropietario());
             ps.setString(3,propietario.getNombrePropietario());
             ps.setString(4,propietario.getDomicilioPropietario());
@@ -46,8 +46,8 @@ public class PropietarioData {
             ps.setString(6,propietario.getEmail());
             
             ps.executeUpdate();
-            System.out.println("Propietario ID : "+propietario.getCuilPropietario()+" almacenado.");
-            JOptionPane.showMessageDialog(null,"Propietario ID : "+propietario.getCuilPropietario()+" almacenado.","Información",JOptionPane.INFORMATION_MESSAGE );
+            System.out.println("Propietario ID : "+propietario.getCuitPropietario()+" almacenado.");
+            JOptionPane.showMessageDialog(null,"Propietario ID : "+propietario.getCuitPropietario()+" almacenado.","Información",JOptionPane.INFORMATION_MESSAGE );
             ResultSet rs=ps.getGeneratedKeys();
                                 
             ps.close();
@@ -64,12 +64,12 @@ public class PropietarioData {
     //Modificar
     
         public void actualizarPropietario(Propietario propietario){
-        String sql="UPDATE propietario SET apellido=?,nombre=?,domicilio=?,telefono=?,email=? WHERE cuilPropietario=?;";
+        String sql="UPDATE propietario SET apellido=?,nombre=?,domicilio=?,telefono=?,email=? WHERE cuitPropietario=?;";
         
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             
-            ps.setInt(6, propietario.getCuilPropietario());
+            ps.setInt(6, propietario.getCuitPropietario());
             ps.setString(1, propietario.getApellidoPropietario());
             ps.setString(2,propietario.getNombrePropietario());
             ps.setString(3,propietario.getDomicilioPropietario());
@@ -79,8 +79,8 @@ public class PropietarioData {
             
             ps.executeUpdate();
             
-            System.out.println("Propietario CUIL : "+propietario.getCuilPropietario()+" actualizado.");
-            JOptionPane.showMessageDialog(null,"Propietario CUIL : "+propietario.getCuilPropietario()+" actualizado.","Información",JOptionPane.INFORMATION_MESSAGE );
+            System.out.println("Propietario CUIT : "+propietario.getCuitPropietario()+" actualizado.");
+            JOptionPane.showMessageDialog(null,"Propietario CUIT : "+propietario.getCuitPropietario()+" actualizado.","Información",JOptionPane.INFORMATION_MESSAGE );
             ps.close();
             
         }
@@ -96,7 +96,7 @@ public class PropietarioData {
         // Borrar Propietario
         public void borrarPropietario(int idPropietario){
             
-            String sql="DELETE FROM propietario WHERE cuilPropietario=?";
+            String sql="DELETE FROM propietario WHERE cuitPropietario=?";
            
             try{
                 PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -126,7 +126,7 @@ public class PropietarioData {
           Propietario propietario = null;
         try {
             
-           String sql = "SELECT * FROM propietario  WHERE cuilPropietario=?;";
+           String sql = "SELECT * FROM propietario  WHERE cuitPropietario=?;";
             
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, idPropietario);
@@ -136,7 +136,7 @@ public class PropietarioData {
             while(resultSet.next()){//el while recorre toda la BD
                 
                 propietario = new Propietario();
-                propietario.setCuilPropietario(resultSet.getInt("cuilPropietario"));
+                propietario.setCuitPropietario(resultSet.getInt("cuitPropietario"));
                 propietario.setApellidoPropietario(resultSet.getString("apellido"));
                 propietario.setNombrePropietario(resultSet.getString("nombre"));
                 propietario.setDomicilioPropietario(resultSet.getString("domicilio"));
@@ -175,7 +175,7 @@ public class PropietarioData {
             while(resultSet.next()){//el while recorre toda la BD
                 propietario=new Propietario();
                 
-                propietario.setCuilPropietario(resultSet.getInt("cuilPropietario"));
+                propietario.setCuitPropietario(resultSet.getInt("cuitPropietario"));
                 propietario.setApellidoPropietario(resultSet.getString("apellido"));
                 propietario.setNombrePropietario(resultSet.getString("nombre"));
                 propietario.setDomicilioPropietario(resultSet.getString("domicilio"));
