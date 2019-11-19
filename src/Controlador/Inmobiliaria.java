@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class Inmobiliaria implements ActionListener, MouseListener{
     private ConexionD con;
-    private VistaInmobiliaria v;
+    private PrincipalInmobiliaria v;
     private Inmueble inmueble;
     private InmuebleData inmuebleData;
     private FormularioInmueble fInmueble;
@@ -26,7 +26,7 @@ public class Inmobiliaria implements ActionListener, MouseListener{
     
 
     public Inmobiliaria() {
-        v = new VistaInmobiliaria();
+        v = new PrincipalInmobiliaria();
         v.setVisible(true);
         v.mInmueble.addActionListener(this);
         v.mSalir.addActionListener(this);

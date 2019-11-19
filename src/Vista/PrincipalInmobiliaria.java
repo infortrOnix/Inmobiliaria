@@ -6,12 +6,12 @@ package Vista;
  * @kaiserkey
  * 
  */
-public class VistaInmobiliaria extends javax.swing.JFrame {
+public class PrincipalInmobiliaria extends javax.swing.JFrame {
     //private FormularioInmueble fInmueble;
     /**
      * Creates new form VistaInmobiliaria
      */
-    public VistaInmobiliaria() {
+    public PrincipalInmobiliaria() {
         initComponents();
         setTitle("Inmobiliaria");
         setSize(800,600);
