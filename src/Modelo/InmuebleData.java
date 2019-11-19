@@ -14,14 +14,17 @@ import java.util.ArrayList;
  */
 public class InmuebleData {
     private Connection con;
-    private ArrayList<Inmueble> inmuebles = new ArrayList<Inmueble>();
+    private ArrayList<Inmueble> inmuebles;
     
-    public InmuebleData(Conexion con){
-        this.con = con.getConnection();
-        if (con == null){
-            System.out.println("ERROR la conexion no se ha establecido en InmuebleData");
-        }else{
-            System.out.println("InmuebleData Conexion establecida");
+
+    public InmuebleData(Conexion conexion){
+         try
+        {
+            con = conexion.getConnection();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error de conexion1");
         }
     }
     
@@ -70,8 +73,8 @@ public class InmuebleData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, inmueble.getIdInmueble());
             ResultSet rs=ps.executeQuery();//ejecuta la busqueda
-            
             while(rs.next()){//Muestra los campos obtenidos
+                
                 System.out.println("\nID INMUEBLRE: "+rs.getInt("idInmueble"));
                 System.out.println("ID PROPIETARIO: "+rs.getInt("idPropietario"));
                 System.out.println("ID TIPO: "+rs.getInt("idTipoInmueble"));
@@ -90,8 +93,34 @@ public class InmuebleData {
                 inmueble.setPrecioBase(rs.getDouble("precioBase"));
                 inmueble.setCodigoZona(rs.getInt("codigoZona"));
                 inmueble.setDisponible(rs.getString("disponible"));
+            }
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
+        }
+    }
+    
+        public void buscarTodosInmuebles(){
+        try{
+            String sql = "SELECT * FROM inmueble";
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();//ejecuta la busqueda
+            inmuebles = new ArrayList<Inmueble>();
+            Inmueble inmueble;
+            while(rs.next()){//Muestra los campos obtenidos
+                inmueble = new Inmueble();
+                inmueble.setIdInmueble(rs.getInt("idInmueble"));
+                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
+                inmueble.setDireccion(rs.getString("direccion"));
+                inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
+                inmueble.setSuperficie(rs.getDouble("superficie"));
+                inmueble.setPrecioBase(rs.getDouble("precioBase"));
+                inmueble.setCodigoZona(rs.getInt("codigoZona"));
+                inmueble.setDisponible(rs.getString("disponible"));
                 inmuebles.add(inmueble);
-                
             }
             
         }catch(SQLException ex){

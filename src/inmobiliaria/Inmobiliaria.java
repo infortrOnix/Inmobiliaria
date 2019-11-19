@@ -6,7 +6,6 @@ import Modelo.Inmueble;
 import Modelo.InmuebleData;
 import Modelo.Propietario;
 import Modelo.PropietarioData;
-import Vista.MenuPrincipal;
 import javax.swing.JFrame;
 
 /**
@@ -22,8 +21,6 @@ public class Inmobiliaria {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        MenuPrincipal menu=new MenuPrincipal();
-        menu.setVisible(true);
        //***********Prueba de Propietario***************** 
        //Propietario lazaro1=new Propietario(10000000,"Gutierrez","Martin","Paraguay s/n",23187066,"aguanteKris@hotmail.com");
         

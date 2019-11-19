@@ -25,7 +25,7 @@ public class ContratoDataF {
         String sql="INSERT INTO contrato (fechaInicial,fechaFinal,estado,idContrato,idInquilino,idInmueble)VALUES ?,?,?,?,?,?";
         try
         {
-               PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
         ps.setDate(1,contrato.getFechaInicial());
         ps.setDate(2,contrato.getFechaFinal());
         ps.setString(3,contrato.getEstado());
@@ -105,7 +105,7 @@ public class ContratoDataF {
     public ContratoF buscar(int idContrato)
     {
         String sql="SELECT * FROM contrato WHERE idContrato=?";
-        ContratoF c = new ContratoF();
+        ContratoF contrato = new ContratoF();
         
         try
         {
@@ -120,11 +120,11 @@ public class ContratoDataF {
             
             while(rs.next())
             {                   
-                c.setFechaInicial(rs.getDate("fechaInicial"));
-                c.setFechaFinal(rs.getDate("fechaFinal"));
-                c.setestado(rs.getString("estado"));
-                c.setIdInquilino(i.Buscar(rs.getInt("idInquilino")) );
-                c.setIdImueble(in.buscarInmueble(rs.getInt("idInmueble")));                                             
+                contrato.setFechaInicial(rs.getDate("fechaInicial"));
+                contrato.setFechaFinal(rs.getDate("fechaFinal"));
+                contrato.setestado(rs.getString("estado"));
+                contrato.setIdInquilino(i.Buscar(rs.getInt("idInquilino")) );
+                contrato.setIdImueble(in.buscarInmueble(rs.getInt("idInmueble")));                                             
             }
             System.out.println("Se ha econtrado correctamente");
         }
@@ -132,7 +132,7 @@ public class ContratoDataF {
         {
             System.out.println("No se encontrado el contrato");
         }
-        return c;
+        return contrato;
         
     }
     
@@ -148,8 +148,8 @@ public class ContratoDataF {
             ResultSet rs=ps.executeQuery();
             
             Conexion conexion=null;                         
-            InquilinoData i = new InquilinoData(conexion);  
-            InmuebleData in = new InmuebleData(conexion);   
+            InquilinoData inquilino = new InquilinoData(conexion);  
+            InmuebleData inmueble = new InmuebleData(conexion);   
             
             
             while(rs.next())
@@ -157,8 +157,8 @@ public class ContratoDataF {
                 c.setFechaInicial(rs.getDate("fechaInicial"));
                 c.setFechaFinal(rs.getDate("fechaFinal"));
                 c.setestado(rs.getString("estado"));
-                c.setIdInquilino(i.Buscar(rs.getInt("idInquilino")) );
-                c.setIdImueble(in.buscarInmueble(rs.getInt("idInmueble"))); 
+                c.setIdInquilino(inquilino.Buscar(rs.getInt("idInquilino")) );
+                c.setIdImueble(inmueble.buscarInmueble(rs.getInt("idInmueble"))); 
                 
                 lista.add(c);
             }
