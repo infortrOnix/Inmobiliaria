@@ -4,16 +4,16 @@ package Modelo;
 import java.sql.*;
 import java.util.*;
 
-public class inquilinoData 
+public class InquilinoData 
 {
     
     Connection con=null;
     
-    public inquilinoData(ConexionN conexion)
+    public InquilinoData(Conexion conexion)
     {
         try
         {
-            con = conexion.getConexion();
+            con = conexion.getConnection();
         }
         catch(Exception ex)
         {

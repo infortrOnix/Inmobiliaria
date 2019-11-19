@@ -16,8 +16,8 @@ public class InmuebleData {
     private Connection con;
     private ArrayList<Inmueble> inmuebles = new ArrayList<Inmueble>();
     
-    public InmuebleData(ConexionN con){
-        this.con = con.getConexion();
+    public InmuebleData(Conexion con){
+        this.con = con.getConnection();
         if (con == null){
             System.out.println("ERROR la conexion no se ha establecido en InmuebleData");
         }else{
@@ -98,6 +98,34 @@ public class InmuebleData {
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
         }
+    }
+    
+    public Inmueble buscarInmueble(int idInmueble)// metodo sobrecargado
+    {
+        Inmueble in = new Inmueble();
+        try{
+            String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idInmueble);
+            ResultSet rs=ps.executeQuery();
+                       
+            while(rs.next())
+            {                
+                in.setIdInmueble(rs.getInt("idInmueble"));
+                in.setIdPropietario(rs.getInt("idPropietario"));
+                in.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
+                in.setDireccion(rs.getString("direccion"));
+                in.setAlturaInmueble(rs.getInt("alturaInmueble"));
+                in.setSuperficie(rs.getDouble("superficie"));
+                in.setPrecioBase(rs.getDouble("precioBase"));
+                in.setCodigoZona(rs.getInt("codigoZona"));
+                in.setDisponible(rs.getString("disponible"));                              
+            }            
+        }catch(SQLException ex){
+            System.out.println( "No se ha podido encontrar");
+        }
+        return in;
     }
     
     public void borrarInmueble(int idInmueble){

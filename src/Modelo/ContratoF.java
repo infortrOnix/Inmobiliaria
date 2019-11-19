@@ -13,7 +13,7 @@ public class ContratoF {
     public void setFechaInicial(Date fechaInicial){this.fechaInicial=fechaInicial;}
     public void setFechaFinal(Date fechaFinal){this.fechaFinal=fechaFinal;}
     public void setestado(String estado){this.estado=estado;}
-    public void setidContrato(int idContrato){this.idContrato=idContrato;}
+    public void setIdContrato(int idContrato){this.idContrato=idContrato;}
     public void setIdInquilino(Inquilino idInquilino){this.idInquilino=idInquilino;}
     public void setIdImueble(Inmueble inmuble){this.idInmueble=idInmueble;}
     
