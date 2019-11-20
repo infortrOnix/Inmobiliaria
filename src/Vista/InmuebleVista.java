@@ -47,6 +47,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbCUIT.setEnabled(false);
         cbDireccion.setEnabled(false);
         cbPrecio.setEnabled(false);
+        cbDisponible.setEnabled(false);
         rbDisponibleN.setEnabled(false);
         rbDisponibleY.setEnabled(false);
 
@@ -101,6 +102,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbPrecio = new javax.swing.JCheckBox();
         cbCUIT = new javax.swing.JCheckBox();
         btnCancelar = new javax.swing.JButton();
+        cbDisponible = new javax.swing.JCheckBox();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -232,18 +234,21 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                             .addComponent(tbIdInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbIDInmueble)
-                            .addComponent(cbDireccion)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cbCUIT)))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbIDInmueble)
+                                    .addComponent(cbDireccion)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cbPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(cbCUIT)))
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cbDisponible))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -308,7 +313,8 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                             .addComponent(labelDisponible)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(rbDisponibleY)
-                                .addComponent(rbDisponibleN)))))
+                                .addComponent(rbDisponibleN)
+                                .addComponent(cbDisponible)))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
@@ -327,6 +333,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JCheckBox cbCUIT;
     public javax.swing.JCheckBox cbDireccion;
+    public javax.swing.JCheckBox cbDisponible;
     public javax.swing.JCheckBox cbIDInmueble;
     public javax.swing.JCheckBox cbPrecio;
     private javax.swing.JDialog jDialog1;

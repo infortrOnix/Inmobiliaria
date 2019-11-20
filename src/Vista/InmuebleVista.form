@@ -87,20 +87,25 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cbIDInmueble" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbDireccion" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cbPrecio" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbCUIT" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbIDInmueble" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbDireccion" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cbPrecio" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbCUIT" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnGuardar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnEliminar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnActualizar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnBuscar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnCancelar" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnGuardar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnEliminar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnActualizar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnBuscar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnCancelar" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbDisponible" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -182,6 +187,7 @@
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="rbDisponibleY" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="rbDisponibleN" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbDisponible" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -525,6 +531,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="cbDisponible">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
