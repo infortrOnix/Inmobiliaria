@@ -16,7 +16,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
      */
     public InmuebleVista() {
         initComponents();
-        setTitle("Cargar Inmueble");
+        setTitle("Inmueble");
         setSize(1280,650);
         buttonGroup1.add(rbDisponibleY);
         buttonGroup1.add(rbDisponibleN);
