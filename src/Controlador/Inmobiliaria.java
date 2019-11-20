@@ -28,18 +28,21 @@ public class Inmobiliaria implements ActionListener, MouseListener{
 
     public Inmobiliaria() {
         menuPrincipal = new MenuPrincipal();
+        inmuebleVista = new InmuebleVista();
         menuPrincipal.setVisible(true);
+        
         menuPrincipal.mInmueble.addActionListener(this);
         menuPrincipal.mSalir.addActionListener(this);
         menuPrincipal.mPropietario.addActionListener(this);
-        inmuebleVista = new InmuebleVista();
-        inmuebleVista.btnGuardar.addActionListener(this);
         inmuebleVista.menuNuevo.addActionListener(this);
         inmuebleVista.menuBuscar.addActionListener(this);
         inmuebleVista.menuEliminar.addActionListener(this);
         inmuebleVista.menuActualizar.addActionListener(this);
         inmuebleVista.menuBuscar.addActionListener(this);
         inmuebleVista.menuCancelar.addActionListener(this);
+        
+        inmuebleVista.btnGuardar.addActionListener(this);
+        inmuebleVista.btnCancelar.addActionListener(this);
         
     }
     
@@ -76,7 +79,7 @@ public class Inmobiliaria implements ActionListener, MouseListener{
             inmuebleVista.btnBuscar.setEnabled(false);
             inmuebleVista.btnEliminar.setEnabled(false);
             inmuebleVista.btnActualizar.setEnabled(false);
-            inmuebleVista.btnCancelar.setEnabled(false);
+            inmuebleVista.btnCancelar.setEnabled(true);
             inmuebleVista.cbIDInmueble.setEnabled(false);
             inmuebleVista.cbCUIT.setEnabled(false);
             inmuebleVista.cbDireccion.setEnabled(false);
@@ -113,9 +116,9 @@ public class Inmobiliaria implements ActionListener, MouseListener{
             inmuebleVista.lavelDireccion.setText(null);
             inmuebleVista.lavelPrecioBase.setText(null);
             inmuebleVista.lavelSuperficie.setText(null);
+            inmuebleVista.btnCancelar.setEnabled(true);
             inmuebleVista.btnBuscar.setEnabled(false);
             inmuebleVista.btnActualizar.setEnabled(false);
-            inmuebleVista.btnCancelar.setEnabled(false);
             inmuebleVista.cbIDInmueble.setEnabled(false);
             inmuebleVista.cbCUIT.setEnabled(false);
             inmuebleVista.cbDireccion.setEnabled(false);
@@ -141,7 +144,7 @@ public class Inmobiliaria implements ActionListener, MouseListener{
             inmuebleVista.btnGuardar.setEnabled(false);
             inmuebleVista.btnEliminar.setEnabled(false);
             inmuebleVista.btnActualizar.setEnabled(false);
-            inmuebleVista.btnCancelar.setEnabled(false);
+            inmuebleVista.btnCancelar.setEnabled(true);
             inmuebleVista.cbIDInmueble.setEnabled(false);
             inmuebleVista.cbCUIT.setEnabled(false);
             inmuebleVista.cbDireccion.setEnabled(false);
@@ -185,7 +188,7 @@ public class Inmobiliaria implements ActionListener, MouseListener{
             inmuebleVista.btnBuscar.setEnabled(false);
             inmuebleVista.btnEliminar.setEnabled(false);
             inmuebleVista.btnActualizar.setEnabled(true);
-            inmuebleVista.btnCancelar.setEnabled(false);
+            inmuebleVista.btnCancelar.setEnabled(true);
             inmuebleVista.cbIDInmueble.setEnabled(false);
             inmuebleVista.cbCUIT.setEnabled(false);
             inmuebleVista.cbDireccion.setEnabled(false);
@@ -217,7 +220,40 @@ public class Inmobiliaria implements ActionListener, MouseListener{
             inmuebleVista.btnEliminar.setEnabled(false);
             inmuebleVista.btnBuscar.setEnabled(false);
             inmuebleVista.btnActualizar.setEnabled(false);
-            inmuebleVista.btnCancelar.setEnabled(false);
+            inmuebleVista.btnCancelar.setEnabled(true);
+            inmuebleVista.tbIdInmueble.setEditable(true);
+            inmuebleVista.tbAltura.setEditable(false);
+            inmuebleVista.tbCodigoZona.setEditable(false);
+            inmuebleVista.tbDireccion.setEditable(false);
+            inmuebleVista.tbIDTipo.setEditable(false);
+            inmuebleVista.tbSuperficie.setEditable(false);
+            inmuebleVista.tbIDPropietario.setEditable(false);
+            inmuebleVista.tbIdInmueble.setEditable(false);
+            inmuebleVista.spPrecio.setEnabled(false);
+            inmuebleVista.labelDisponible.setText(null);
+            inmuebleVista.lavelAltura.setText(null);
+            inmuebleVista. lavelCUIT.setText(null);
+            inmuebleVista.lavelCodigoTipo.setText(null);
+            inmuebleVista.lavelCodigoZona.setText(null);
+            inmuebleVista.lavelDireccion.setText(null);
+            inmuebleVista.lavelPrecioBase.setText(null);
+            inmuebleVista.lavelCodigoInmueble.setText(null);
+            inmuebleVista.lavelSuperficie.setText(null);
+            inmuebleVista.cbIDInmueble.setEnabled(false);
+            inmuebleVista.cbCUIT.setEnabled(false);
+            inmuebleVista.cbDireccion.setEnabled(false);
+            inmuebleVista.cbPrecio.setEnabled(false);
+            inmuebleVista.cbDisponible.setEnabled(false);
+            inmuebleVista.rbDisponibleN.setEnabled(false);
+            inmuebleVista.rbDisponibleY.setEnabled(false);
+            inmuebleVista.cbDisponible.setEnabled(false);
+        }
+        
+        if(e.getSource()==inmuebleVista.btnCancelar){
+            inmuebleVista.btnGuardar.setEnabled(false);
+            inmuebleVista.btnEliminar.setEnabled(false);
+            inmuebleVista.btnBuscar.setEnabled(false);
+            inmuebleVista.btnActualizar.setEnabled(false);
             inmuebleVista.tbIdInmueble.setEditable(true);
             inmuebleVista.tbAltura.setEditable(false);
             inmuebleVista.tbCodigoZona.setEditable(false);

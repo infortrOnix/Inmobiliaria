@@ -13,7 +13,6 @@ public class Propietario {
     private String domicilioPropietario;
     private int telefono;
     private String email;
-    
     public Propietario(){
         
     }
