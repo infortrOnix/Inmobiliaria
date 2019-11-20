@@ -85,7 +85,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         menuPropietario.setText("Propietario");
 
+        mPropietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedor.png"))); // NOI18N
         mPropietario.setText("Propietario");
+        mPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mPropietarioActionPerformed(evt);
+            }
+        });
         menuPropietario.add(mPropietario);
 
         bMenu.add(menuPropietario);
@@ -115,6 +121,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void mInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mInmuebleActionPerformed
 
     }//GEN-LAST:event_mInmuebleActionPerformed
+
+    private void mPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mPropietarioActionPerformed
+        // TODO add your handling code here:
+        
+        Escritorio.removeAll();
+       Escritorio.repaint();
+       
+       PropietarioVista propietarioVista=new PropietarioVista();
+       propietarioVista.setVisible(true);
+       
+       Escritorio.add(propietarioVista);
+       Escritorio.moveToFront(propietarioVista);
+        
+    }//GEN-LAST:event_mPropietarioActionPerformed
 
 
 
