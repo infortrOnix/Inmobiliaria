@@ -15,72 +15,138 @@ import javax.swing.JOptionPane;
  * 
  */
 public class Inmobiliaria implements ActionListener, MouseListener{
-    private ConexionD con;
-    private PrincipalInmobiliaria v;
+    private Conexion con;
+    private MenuPrincipal menuPrincipal;
     private Inmueble inmueble;
     private InmuebleData inmuebleData;
-    private FormularioInmueble fInmueble;
+    private InmuebleVista inmuebleVista;
     private Propietario propietario;
     private tipoInmueble tipo;
     private PropietarioData propietarioData;
     
 
     public Inmobiliaria() {
-        v = new PrincipalInmobiliaria();
-        v.setVisible(true);
-        v.mInmueble.addActionListener(this);
-        v.mSalir.addActionListener(this);
-        v.mActualizarInmueble.addActionListener(this);
-        v.mBuscarInmueble.addActionListener(this);
-        fInmueble = new FormularioInmueble();
-        fInmueble.btCargar.addActionListener(this);
-        
-        
+        menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        menuPrincipal.mInmueble.addActionListener(this);
+        menuPrincipal.mSalir.addActionListener(this);
+        inmuebleVista = new InmuebleVista();
+        inmuebleVista.btnGuardar.addActionListener(this);
+        inmuebleVista.menuNuevo.addActionListener(this);
+        inmuebleVista.menuBuscar.addActionListener(this);
+        inmuebleVista.menuEliminar.addActionListener(this);
+        inmuebleVista.menuActualizar.addActionListener(this);
     }
     
     public static void main(String[] args) {
  
-         Inmobiliaria i = new Inmobiliaria();
+         Inmobiliaria inmobiliaria = new Inmobiliaria();
          
          
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==v.mInmueble){
-            v.Escritorio.removeAll();
-            v.Escritorio.repaint();
-            fInmueble.setVisible(true);
-            v.Escritorio.add(fInmueble);
-            v.Escritorio.moveToFront(fInmueble);
+        
+        if(e.getSource()==inmuebleVista.menuNuevo){
+            inmuebleVista.btnGuardar.setEnabled(true);
+            inmuebleVista.tbIdInmueble.setEditable(false);
+            inmuebleVista.lavelCodigoInmueble.setText(null);
+            inmuebleVista.tbAltura.setEditable(true);
+            inmuebleVista.tbCodigoZona.setEditable(true);
+            inmuebleVista.tbDireccion.setEditable(true);
+            inmuebleVista.tbIDTipo.setEditable(true);
+            inmuebleVista.tbSuperficie.setEditable(true);
+            inmuebleVista.tbIDPropietario.setEditable(true);
+            inmuebleVista.spPrecio.setEnabled(true);
+            inmuebleVista.btnBuscar.setEnabled(false);
+            inmuebleVista.btnEliminar.setEnabled(false);
+            inmuebleVista.btnActualizar.setEnabled(false);
+            inmuebleVista.btnLimpiar.setEnabled(false);
+            inmuebleVista.cbIDInmueble.setEnabled(false);
+            inmuebleVista.cbCUIT.setEnabled(false);
+            inmuebleVista.cbDireccion.setEnabled(false);
+            inmuebleVista.cbPrecio.setEnabled(false);
+            inmuebleVista.rbDisponibleN.setEnabled(true);
+            inmuebleVista.rbDisponibleY.setEnabled(true);
+            
+            inmuebleVista.lavelCUIT.setText("CUIT del Propieario");
+            inmuebleVista.lavelCodigoTipo.setText("Codigo Tipo de Inmueble");
+            inmuebleVista.lavelDireccion.setText("Direccion");
+            inmuebleVista.lavelAltura.setText("Altura");
+            inmuebleVista.lavelSuperficie.setText("Superficie");
+            inmuebleVista.lavelPrecioBase.setText("Precio Base");
+            inmuebleVista.lavelCodigoZona.setText("Codigo de Zona");
+            inmuebleVista.labelDisponible.setText("Disponible");
+            inmuebleVista.lavelCodigoInmueble.setText("Codigo Inmueble");
         }
-        if(e.getSource()==v.mSalir){
+        if(e.getSource()==inmuebleVista.menuEliminar){
+            inmuebleVista.btnEliminar.setEnabled(true);
+            inmuebleVista.tbIdInmueble.setEditable(true);
+            inmuebleVista.tbAltura.setEditable(false);
+            inmuebleVista.tbCodigoZona.setEditable(false);
+            inmuebleVista.tbDireccion.setEditable(false);
+            inmuebleVista.tbIDTipo.setEditable(false);
+            inmuebleVista.tbSuperficie.setEditable(false);
+            inmuebleVista.tbIDPropietario.setEditable(false);
+            inmuebleVista.spPrecio.setEnabled(false);
+            inmuebleVista.labelDisponible.setText(null);
+            inmuebleVista.lavelAltura.setText(null);
+            inmuebleVista.lavelCUIT.setText(null);
+            inmuebleVista.lavelCodigoTipo.setText(null);
+            inmuebleVista.lavelCodigoZona.setText(null);
+            inmuebleVista.lavelDireccion.setText(null);
+            inmuebleVista.lavelPrecioBase.setText(null);
+            inmuebleVista.lavelSuperficie.setText(null);
+            inmuebleVista.btnBuscar.setEnabled(false);
+            inmuebleVista.btnActualizar.setEnabled(false);
+            inmuebleVista.btnLimpiar.setEnabled(false);
+            inmuebleVista.cbIDInmueble.setEnabled(false);
+            inmuebleVista.cbCUIT.setEnabled(false);
+            inmuebleVista.cbDireccion.setEnabled(false);
+            inmuebleVista.cbPrecio.setEnabled(false);
+            inmuebleVista.btnGuardar.setEnabled(false);
+            inmuebleVista.rbDisponibleN.setEnabled(false);
+            inmuebleVista.rbDisponibleY.setEnabled(false);
+        }
+        
+        if(e.getSource()==menuPrincipal.mInmueble){
+            menuPrincipal.Escritorio.removeAll();
+            menuPrincipal.Escritorio.repaint();
+            inmuebleVista.setVisible(true);
+            menuPrincipal.Escritorio.add(inmuebleVista);
+            menuPrincipal.Escritorio.moveToFront(inmuebleVista);
+        }
+        if(e.getSource()==menuPrincipal.mSalir){
             System.exit(0);
         }
-        if(e.getSource() == fInmueble.btCargar){
-            if(fInmueble.tbIDPropietario.getText() == ""||
-                    fInmueble.tbIDTipo.getText() == ""||
-                    fInmueble.tbAltura.getText() == ""||
-                    fInmueble.tbCodigoZona.getText() == ""||
-                    fInmueble.tbDireccion.getText() == ""||
-                    fInmueble.tbSuperficie.getText() == ""||
-                    fInmueble.getButtonGroup1().isSelected(fInmueble.getButtonGroup1().getSelection()))
+
+        if(e.getSource() == inmuebleVista.btnGuardar){
+            
+            if(inmuebleVista.tbIDPropietario.getText() == ""||
+                    inmuebleVista.tbIDTipo.getText() == ""||
+                    inmuebleVista.tbAltura.getText() == ""||
+                    inmuebleVista.tbCodigoZona.getText() == ""||
+                    inmuebleVista.tbDireccion.getText() == ""||
+                    inmuebleVista.tbSuperficie.getText() == ""||
+                    inmuebleVista.getButtonGroup1().isSelected(inmuebleVista.getButtonGroup1().getSelection()))
             {
                 JOptionPane.showMessageDialog(null,"Rellene todos los campos vacios","Campo Vacio",JOptionPane.WARNING_MESSAGE );
-            }else{
+            }else
+            {
                 inmueble = new Inmueble();
                 propietario = new Propietario();
                 tipo = new tipoInmueble();
-                inmueble.setIdPropietario(Integer.parseInt(fInmueble.tbIDPropietario.getText()));
-                inmueble.setIdTipoInmueble(Integer.parseInt(fInmueble.tbIDTipo.getText()));
-                inmueble.setAlturaInmueble(Integer.parseInt(fInmueble.tbAltura.getText()));
-                inmueble.setCodigoZona(Integer.parseInt(fInmueble.tbCodigoZona.getText()));
-                inmueble.setDireccion(fInmueble.tbDireccion.getText());
-                inmueble.setPrecioBase(Double.parseDouble(fInmueble.spPrecio.getValue().toString()));
-                inmueble.setSuperficie(Double.parseDouble(fInmueble.tbSuperficie.getText()));
-                inmueble.setDisponible(fInmueble.getButtonGroup1().getSelection().toString());
-                con = new ConexionD();
-                con.crearConexion();
+                inmueble.setIdPropietario(Integer.parseInt(inmuebleVista.tbIDPropietario.getText()));
+                inmueble.setIdTipoInmueble(Integer.parseInt(inmuebleVista.tbIDTipo.getText()));
+                inmueble.setAlturaInmueble(Integer.parseInt(inmuebleVista.tbAltura.getText()));
+                inmueble.setCodigoZona(Integer.parseInt(inmuebleVista.tbCodigoZona.getText()));
+                inmueble.setDireccion(inmuebleVista.tbDireccion.getText());
+                inmueble.setPrecioBase(Double.parseDouble(inmuebleVista.spPrecio.getValue().toString()));
+                inmueble.setSuperficie(Double.parseDouble(inmuebleVista.tbSuperficie.getText()));
+                inmueble.setDisponible(inmuebleVista.getButtonGroup1().getSelection().toString());
+                con = new Conexion();
+                con.getConnection();
                 inmuebleData = new InmuebleData(con);
                 
                 inmuebleData.guardarInmueble(inmueble, null, null);

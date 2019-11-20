@@ -6,15 +6,15 @@ package Vista;
  * @kaiserkey
  * 
  */
-public class PrincipalInmobiliaria extends javax.swing.JFrame {
-    //private FormularioInmueble fInmueble;
+public class MenuPrincipal extends javax.swing.JFrame {
+    
     /**
      * Creates new form VistaInmobiliaria
      */
-    public PrincipalInmobiliaria() {
+    public MenuPrincipal() {
         initComponents();
         setTitle("Inmobiliaria");
-        setSize(800,600);
+        setSize(1280,720);
     }
 
 
@@ -26,12 +26,11 @@ public class PrincipalInmobiliaria extends javax.swing.JFrame {
         bMenu = new javax.swing.JMenuBar();
         menu0 = new javax.swing.JMenu();
         mSalir = new javax.swing.JMenuItem();
-        menu1 = new javax.swing.JMenu();
+        menuInmueble = new javax.swing.JMenu();
         mInmueble = new javax.swing.JMenuItem();
-        menu2 = new javax.swing.JMenu();
-        mBuscarInmueble = new javax.swing.JMenuItem();
-        menu3 = new javax.swing.JMenu();
-        mActualizarInmueble = new javax.swing.JMenuItem();
+        menuInquilino = new javax.swing.JMenu();
+        menuContrato = new javax.swing.JMenu();
+        menuPropietario = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,7 +54,7 @@ public class PrincipalInmobiliaria extends javax.swing.JFrame {
 
         bMenu.add(menu0);
 
-        menu1.setText("Formularios");
+        menuInmueble.setText("Inmueble");
 
         mInmueble.setText("Inmueble");
         mInmueble.addActionListener(new java.awt.event.ActionListener() {
@@ -63,23 +62,18 @@ public class PrincipalInmobiliaria extends javax.swing.JFrame {
                 mInmuebleActionPerformed(evt);
             }
         });
-        menu1.add(mInmueble);
+        menuInmueble.add(mInmueble);
 
-        bMenu.add(menu1);
+        bMenu.add(menuInmueble);
 
-        menu2.setText("Busquedas");
+        menuInquilino.setText("Inquilino");
+        bMenu.add(menuInquilino);
 
-        mBuscarInmueble.setText("Buscar Inmueble");
-        menu2.add(mBuscarInmueble);
+        menuContrato.setText("Contrato");
+        bMenu.add(menuContrato);
 
-        bMenu.add(menu2);
-
-        menu3.setText("Actualizar Datos");
-
-        mActualizarInmueble.setText("Actualizar Inmueble");
-        menu3.add(mActualizarInmueble);
-
-        bMenu.add(menu3);
+        menuPropietario.setText("Propietario");
+        bMenu.add(menuPropietario);
 
         setJMenuBar(bMenu);
 
@@ -113,13 +107,12 @@ public class PrincipalInmobiliaria extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane Escritorio;
     public javax.swing.JMenuBar bMenu;
-    public javax.swing.JMenuItem mActualizarInmueble;
-    public javax.swing.JMenuItem mBuscarInmueble;
     public javax.swing.JMenuItem mInmueble;
     public javax.swing.JMenuItem mSalir;
     public javax.swing.JMenu menu0;
-    public javax.swing.JMenu menu1;
-    public javax.swing.JMenu menu2;
-    public javax.swing.JMenu menu3;
+    public javax.swing.JMenu menuContrato;
+    public javax.swing.JMenu menuInmueble;
+    public javax.swing.JMenu menuInquilino;
+    private javax.swing.JMenu menuPropietario;
     // End of variables declaration//GEN-END:variables
 }

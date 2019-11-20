@@ -25,9 +25,9 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menu1">
+        <Menu class="javax.swing.JMenu" name="menuInmueble">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Formularios"/>
+            <Property name="text" type="java.lang.String" value="Inmueble"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -46,41 +46,26 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menu2">
+        <Menu class="javax.swing.JMenu" name="menuInquilino">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Busquedas"/>
+            <Property name="text" type="java.lang.String" value="Inquilino"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mBuscarInmueble">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar Inmueble"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </MenuItem>
-          </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menu3">
+        <Menu class="javax.swing.JMenu" name="menuContrato">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Actualizar Datos"/>
+            <Property name="text" type="java.lang.String" value="Contrato"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mActualizarInmueble">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Actualizar Inmueble"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </MenuItem>
-          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuPropietario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Propietario"/>
+          </Properties>
         </Menu>
       </SubComponents>
     </Menu>
