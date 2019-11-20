@@ -59,6 +59,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         menuInmueble.setText("Inmueble");
 
+        mInmueble.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/finddoc.png"))); // NOI18N
         mInmueble.setText("Inmueble");
         mInmueble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,14 +126,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void mPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mPropietarioActionPerformed
         // TODO add your handling code here:
         
-        Escritorio.removeAll();
-       Escritorio.repaint();
-       
-       PropietarioVista propietarioVista=new PropietarioVista();
-       propietarioVista.setVisible(true);
-       
-       Escritorio.add(propietarioVista);
-       Escritorio.moveToFront(propietarioVista);
+
         
     }//GEN-LAST:event_mPropietarioActionPerformed
 
@@ -145,7 +139,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mContrato;
     public javax.swing.JMenuItem mInmueble;
     private javax.swing.JMenuItem mInquilino;
-    private javax.swing.JMenuItem mPropietario;
+    public javax.swing.JMenuItem mPropietario;
     public javax.swing.JMenuItem mSalir;
     public javax.swing.JMenu menu0;
     public javax.swing.JMenu menuContrato;
