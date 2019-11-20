@@ -122,47 +122,69 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
 
         jMenuItem2.setText("jMenuItem2");
 
+        setBackground(new java.awt.Color(156, 193, 118));
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
+        lavelCUIT.setForeground(new java.awt.Color(0, 0, 0));
         lavelCUIT.setText("CUIT del Propieario");
 
+        lavelCodigoTipo.setForeground(new java.awt.Color(0, 0, 0));
         lavelCodigoTipo.setText("Codigo Tipo de Inmueble");
 
+        lavelDireccion.setForeground(new java.awt.Color(0, 0, 0));
         lavelDireccion.setText("Direccion");
 
+        lavelAltura.setForeground(new java.awt.Color(0, 0, 0));
         lavelAltura.setText("Altura");
 
+        lavelSuperficie.setForeground(new java.awt.Color(0, 0, 0));
         lavelSuperficie.setText("Superficie");
 
+        lavelPrecioBase.setForeground(new java.awt.Color(0, 0, 0));
         lavelPrecioBase.setText("Precio Base");
 
+        lavelCodigoZona.setForeground(new java.awt.Color(0, 0, 0));
         lavelCodigoZona.setText("Codigo de Zona");
 
+        labelDisponible.setForeground(new java.awt.Color(0, 0, 0));
         labelDisponible.setText("Disponible");
 
         spPrecio.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1.0d)));
 
+        rbDisponibleY.setBackground(new java.awt.Color(156, 193, 118));
         rbDisponibleY.setText("Si");
 
+        rbDisponibleN.setBackground(new java.awt.Color(156, 193, 118));
         rbDisponibleN.setText("No");
 
+        btnGuardar.setBackground(new java.awt.Color(116, 159, 243));
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/savedoc.png"))); // NOI18N
         btnGuardar.setText("Guardar Inmueble");
 
+        btnActualizar.setBackground(new java.awt.Color(116, 159, 243));
+        btnActualizar.setForeground(new java.awt.Color(0, 0, 0));
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updatedoc.png"))); // NOI18N
         btnActualizar.setText("Actualizar Inmueble");
 
+        btnBuscar.setBackground(new java.awt.Color(116, 159, 243));
+        btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/investigacion.png"))); // NOI18N
         btnBuscar.setText("Buscar Inmueble");
 
+        btnEliminar.setBackground(new java.awt.Color(116, 159, 243));
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/basura.png"))); // NOI18N
         btnEliminar.setText("Eliminar Inmueble");
 
+        jToolBar1.setBackground(new java.awt.Color(99, 184, 99));
         jToolBar1.setRollover(true);
 
+        menuNuevo.setBackground(new java.awt.Color(153, 204, 255));
+        menuNuevo.setForeground(new java.awt.Color(0, 0, 0));
         menuNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/newdoc.png"))); // NOI18N
         menuNuevo.setText("Nuevo");
         menuNuevo.setMaximumSize(new java.awt.Dimension(83, 60));
@@ -173,6 +195,8 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         });
         jToolBar1.add(menuNuevo);
 
+        menuBuscar.setBackground(new java.awt.Color(153, 204, 255));
+        menuBuscar.setForeground(new java.awt.Color(0, 0, 0));
         menuBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/finddoc.png"))); // NOI18N
         menuBuscar.setText("Buscar");
         menuBuscar.setFocusable(false);
@@ -181,6 +205,8 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         menuBuscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(menuBuscar);
 
+        menuEliminar.setBackground(new java.awt.Color(153, 204, 255));
+        menuEliminar.setForeground(new java.awt.Color(0, 0, 0));
         menuEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/deletedoc.png"))); // NOI18N
         menuEliminar.setText("Borrar");
         menuEliminar.setFocusable(false);
@@ -189,6 +215,8 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         menuEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(menuEliminar);
 
+        menuActualizar.setBackground(new java.awt.Color(153, 204, 255));
+        menuActualizar.setForeground(new java.awt.Color(0, 0, 0));
         menuActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updatedoc.png"))); // NOI18N
         menuActualizar.setText("Actualizar");
         menuActualizar.setFocusable(false);
@@ -197,15 +225,30 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         menuActualizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(menuActualizar);
 
+        menuCancelar.setBackground(new java.awt.Color(153, 204, 255));
+        menuCancelar.setForeground(new java.awt.Color(0, 0, 0));
         menuCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/canceldoc.png"))); // NOI18N
         menuCancelar.setText("Cancelar");
         menuCancelar.setMaximumSize(new java.awt.Dimension(100, 60));
         jToolBar1.add(menuCancelar);
 
+        lavelCodigoInmueble.setForeground(new java.awt.Color(0, 0, 0));
         lavelCodigoInmueble.setText("Codigo Inmueble");
 
+        cbIDInmueble.setBackground(new java.awt.Color(156, 193, 118));
+
+        cbDireccion.setBackground(new java.awt.Color(156, 193, 118));
+
+        cbPrecio.setBackground(new java.awt.Color(156, 193, 118));
+
+        cbCUIT.setBackground(new java.awt.Color(156, 193, 118));
+
+        btnCancelar.setBackground(new java.awt.Color(116, 159, 243));
+        btnCancelar.setForeground(new java.awt.Color(0, 0, 0));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/espalda.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+
+        cbDisponible.setBackground(new java.awt.Color(156, 193, 118));
 
         scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         scroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -283,7 +326,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                                             .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addComponent(cbDisponible)))
                             .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 15, Short.MAX_VALUE)))
+                        .addGap(0, 24, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
