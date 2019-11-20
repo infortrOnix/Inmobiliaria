@@ -29,8 +29,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuInmueble = new javax.swing.JMenu();
         mInmueble = new javax.swing.JMenuItem();
         menuInquilino = new javax.swing.JMenu();
+        mInquilino = new javax.swing.JMenuItem();
         menuContrato = new javax.swing.JMenu();
+        mContrato = new javax.swing.JMenuItem();
         menuPropietario = new javax.swing.JMenu();
+        mPropietario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,12 +70,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         bMenu.add(menuInmueble);
 
         menuInquilino.setText("Inquilino");
+
+        mInquilino.setText("Inquilino");
+        menuInquilino.add(mInquilino);
+
         bMenu.add(menuInquilino);
 
         menuContrato.setText("Contrato");
+
+        mContrato.setText("Contrato");
+        menuContrato.add(mContrato);
+
         bMenu.add(menuContrato);
 
         menuPropietario.setText("Propietario");
+
+        mPropietario.setText("Propietario");
+        menuPropietario.add(mPropietario);
+
         bMenu.add(menuPropietario);
 
         setJMenuBar(bMenu);
@@ -107,7 +122,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane Escritorio;
     public javax.swing.JMenuBar bMenu;
+    private javax.swing.JMenuItem mContrato;
     public javax.swing.JMenuItem mInmueble;
+    private javax.swing.JMenuItem mInquilino;
+    private javax.swing.JMenuItem mPropietario;
     public javax.swing.JMenuItem mSalir;
     public javax.swing.JMenu menu0;
     public javax.swing.JMenu menuContrato;

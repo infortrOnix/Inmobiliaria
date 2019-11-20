@@ -53,6 +53,13 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mInquilino">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inquilino"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuContrato">
           <Properties>
@@ -61,11 +68,25 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mContrato">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Contrato"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuPropietario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Propietario"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mPropietario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Propietario"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
