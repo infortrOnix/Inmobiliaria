@@ -62,7 +62,7 @@ public class Inmobiliaria implements ActionListener, MouseListener{
             inmuebleVista.btnBuscar.setEnabled(false);
             inmuebleVista.btnEliminar.setEnabled(false);
             inmuebleVista.btnActualizar.setEnabled(false);
-            inmuebleVista.btnLimpiar.setEnabled(false);
+            inmuebleVista.btnCancelar.setEnabled(false);
             inmuebleVista.cbIDInmueble.setEnabled(false);
             inmuebleVista.cbCUIT.setEnabled(false);
             inmuebleVista.cbDireccion.setEnabled(false);
@@ -100,7 +100,7 @@ public class Inmobiliaria implements ActionListener, MouseListener{
             inmuebleVista.lavelSuperficie.setText(null);
             inmuebleVista.btnBuscar.setEnabled(false);
             inmuebleVista.btnActualizar.setEnabled(false);
-            inmuebleVista.btnLimpiar.setEnabled(false);
+            inmuebleVista.btnCancelar.setEnabled(false);
             inmuebleVista.cbIDInmueble.setEnabled(false);
             inmuebleVista.cbCUIT.setEnabled(false);
             inmuebleVista.cbDireccion.setEnabled(false);

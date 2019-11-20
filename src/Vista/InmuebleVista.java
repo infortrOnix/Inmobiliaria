@@ -24,11 +24,31 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         btnEliminar.setEnabled(false);
         btnBuscar.setEnabled(false);
         btnActualizar.setEnabled(false);
-        btnLimpiar.setEnabled(false);
+        btnCancelar.setEnabled(false);
+        tbIdInmueble.setEditable(true);
+        tbAltura.setEditable(false);
+        tbCodigoZona.setEditable(false);
+        tbDireccion.setEditable(false);
+        tbIDTipo.setEditable(false);
+        tbSuperficie.setEditable(false);
+        tbIDPropietario.setEditable(false);
+        tbIdInmueble.setEditable(false);
+        spPrecio.setEnabled(false);
+        labelDisponible.setText(null);
+        lavelAltura.setText(null);
+        lavelCUIT.setText(null);
+        lavelCodigoTipo.setText(null);
+        lavelCodigoZona.setText(null);
+        lavelDireccion.setText(null);
+        lavelPrecioBase.setText(null);
+        lavelCodigoInmueble.setText(null);
+        lavelSuperficie.setText(null);
         cbIDInmueble.setEnabled(false);
         cbCUIT.setEnabled(false);
         cbDireccion.setEnabled(false);
         cbPrecio.setEnabled(false);
+        rbDisponibleN.setEnabled(false);
+        rbDisponibleY.setEnabled(false);
 
     }
 
@@ -71,15 +91,16 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         menuBuscar = new javax.swing.JButton();
         menuEliminar = new javax.swing.JButton();
         menuActualizar = new javax.swing.JButton();
+        menuCancelar = new javax.swing.JButton();
         lavelCodigoInmueble = new javax.swing.JLabel();
         tbIdInmueble = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnLimpiar = new javax.swing.JButton();
         cbIDInmueble = new javax.swing.JCheckBox();
         cbDireccion = new javax.swing.JCheckBox();
         cbPrecio = new javax.swing.JCheckBox();
         cbCUIT = new javax.swing.JCheckBox();
+        btnCancelar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -151,6 +172,9 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         menuActualizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(menuActualizar);
 
+        menuCancelar.setText("Cancelar");
+        jToolBar1.add(menuCancelar);
+
         lavelCodigoInmueble.setText("Codigo Inmueble");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -171,7 +195,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        btnLimpiar.setText("Limpiar Campos");
+        btnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,7 +243,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                             .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -240,8 +264,8 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                         .addComponent(btnActualizar)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpiar))
+                        .addGap(28, 28, 28)
+                        .addComponent(btnCancelar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lavelCodigoInmueble)
@@ -297,9 +321,9 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
-    public javax.swing.JButton btnLimpiar;
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JCheckBox cbCUIT;
     public javax.swing.JCheckBox cbDireccion;
@@ -322,6 +346,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
     public javax.swing.JLabel lavelSuperficie;
     public javax.swing.JButton menuActualizar;
     public javax.swing.JButton menuBuscar;
+    public javax.swing.JButton menuCancelar;
     public javax.swing.JButton menuEliminar;
     public javax.swing.JButton menuNuevo;
     public javax.swing.JRadioButton rbDisponibleN;
