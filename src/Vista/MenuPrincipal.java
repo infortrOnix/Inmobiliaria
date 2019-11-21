@@ -72,6 +72,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         menuInquilino.setText("Inquilino");
 
+        mInquilino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedor.png"))); // NOI18N
         mInquilino.setText("Inquilino");
         menuInquilino.add(mInquilino);
 
