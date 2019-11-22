@@ -35,6 +35,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mInmueble">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Img/finddoc.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Inmueble"/>
               </Properties>
               <Events>
@@ -91,6 +94,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mPropietarioActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
