@@ -19,6 +19,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mSalirActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
@@ -36,7 +39,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="mInmueble">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Img/finddoc.png"/>
+                  <Image iconType="3" name="/Img/casa.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Inmueble"/>
               </Properties>
@@ -97,6 +100,18 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuTipoInmueble">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipo de Inmueble"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mTipoInmueble">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de Inmueble"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
