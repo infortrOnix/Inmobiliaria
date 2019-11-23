@@ -105,33 +105,32 @@ public class InmuebleData {
         return true;
     }
     
-        public Inmueble buscarInmueble(int idInmueble){
-        Inmueble inmueble = null;
+    public Inmueble buscarInmueble(int idInmueble)// metodo sobrecargado
+    {
+        Inmueble in = new Inmueble();
         try{
             String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
+            
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idInmueble);
-            ResultSet rs=ps.executeQuery();//ejecuta la busqueda
-            
-            while(rs.next()){//Muestra los campos obtenidos
-                inmueble = new Inmueble();
-                inmueble.setIdInmueble(rs.getInt("idInmueble"));
-                inmueble.setIdPropietario(rs.getInt("idPropietario"));
-                inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
-                inmueble.setDireccion(rs.getString("direccion"));
-                inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
-                inmueble.setSuperficie(rs.getDouble("superficie"));
-                inmueble.setPrecioBase(rs.getDouble("precioBase"));
-                inmueble.setCodigoZona(rs.getInt("codigoZona"));
-                inmueble.setDisponible(rs.getString("disponible"));
-            }
-            ps.close();//CERRAMOS EL STATEMENTS
-            
+            ResultSet rs=ps.executeQuery();
+                       
+            while(rs.next())
+            {                
+                in.setIdInmueble(rs.getInt("idInmueble"));
+                in.setIdPropietario(rs.getInt("idPropietario"));
+                in.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
+                in.setDireccion(rs.getString("direccion"));
+                in.setAlturaInmueble(rs.getInt("alturaInmueble"));
+                in.setSuperficie(rs.getDouble("superficie"));
+                in.setPrecioBase(rs.getDouble("precioBase"));
+                in.setCodigoZona(rs.getInt("codigoZona"));
+                in.setDisponible(rs.getString("disponible"));                              
+            }            
         }catch(SQLException ex){
-            ex.printStackTrace();
-            System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
+            System.out.println( "No se ha podido encontrar");
         }
-        return inmueble;
+        return in;
     }
     
     public ArrayList<Inmueble> buscarInmueblePor(String nombre, String valor){
