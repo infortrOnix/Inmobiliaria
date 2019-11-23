@@ -51,7 +51,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbIdInmueble.removeAllItems();
         cbCUITPropietario.setEditable(false);
         cbCUITPropietario.removeAllItems();
+<<<<<<< HEAD
+        tbPrecio.setEnabled(false);
+=======
         spPrecio.setEnabled(false);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         labelDisponible.setText(null);
         lavelAltura.setText(null);
         lavelCUIT.setText(null);
@@ -91,7 +95,6 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         lavelCodigoZona = new javax.swing.JLabel();
         labelDisponible = new javax.swing.JLabel();
         tbDireccion = new javax.swing.JTextField();
-        spPrecio = new javax.swing.JSpinner();
         tbCodigoZona = new javax.swing.JTextField();
         tbSuperficie = new javax.swing.JTextField();
         tbAltura = new javax.swing.JTextField();
@@ -125,6 +128,10 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbIdTipo = new javax.swing.JComboBox();
         cbCUITPropietario = new javax.swing.JComboBox();
         btnCargar = new javax.swing.JButton();
+<<<<<<< HEAD
+        tbPrecio = new javax.swing.JTextField();
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -172,6 +179,34 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         labelDisponible.setText("Disponible");
 
         tbDireccion.setForeground(new java.awt.Color(0, 0, 0));
+<<<<<<< HEAD
+        tbDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbDireccionKeyTyped(evt);
+            }
+        });
+
+        tbCodigoZona.setForeground(new java.awt.Color(0, 0, 0));
+        tbCodigoZona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbAlturaKeyTyped(evt);
+            }
+        });
+
+        tbSuperficie.setForeground(new java.awt.Color(0, 0, 0));
+        tbSuperficie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbSuperficieKeyTyped(evt);
+            }
+        });
+
+        tbAltura.setForeground(new java.awt.Color(0, 0, 0));
+        tbAltura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbAlturaKeyTyped(evt);
+            }
+        });
+=======
 
         spPrecio.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 9999999.0d, 1.0d));
 
@@ -180,6 +215,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         tbSuperficie.setForeground(new java.awt.Color(0, 0, 0));
 
         tbAltura.setForeground(new java.awt.Color(0, 0, 0));
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
 
         rbDisponibleY.setBackground(new java.awt.Color(156, 193, 118));
         rbDisponibleY.setForeground(new java.awt.Color(0, 0, 0));
@@ -405,6 +441,16 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
             }
         });
 
+<<<<<<< HEAD
+        tbPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        tbPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbSuperficieKeyTyped(evt);
+            }
+        });
+
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -437,13 +483,17 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                                         .addComponent(rbDisponibleN)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(tbDireccion)
-                                    .addComponent(spPrecio)
                                     .addComponent(tbCodigoZona)
                                     .addComponent(tbSuperficie)
                                     .addComponent(tbAltura)
                                     .addComponent(cbIdInmueble, 0, 147, Short.MAX_VALUE)
                                     .addComponent(cbCUITPropietario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< HEAD
+                                    .addComponent(cbIdTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tbPrecio, javax.swing.GroupLayout.Alignment.TRAILING))
+=======
                                     .addComponent(cbIdTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbxDireccion)
@@ -495,6 +545,31 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelar))
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lavelCodigoInmueble)
+                                        .addComponent(cbIdInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbxIDInmueble))
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lavelCUIT)
+                                            .addComponent(cbCUITPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lavelCodigoTipo)
+                                            .addComponent(cbIdTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cbxCUIT)))
+                            .addComponent(btnCargar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+=======
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,6 +593,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
                                     .addComponent(lavelDireccion)
                                     .addComponent(tbDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -528,10 +604,17 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lavelSuperficie)
                                     .addComponent(tbSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tbPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lavelPrecioBase)))
+=======
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lavelPrecioBase)
                                     .addComponent(spPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cbxDireccion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -547,7 +630,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(rbDisponibleY)
                                 .addComponent(rbDisponibleN)))))
+<<<<<<< HEAD
+                .addGap(18, 26, Short.MAX_VALUE)
+=======
                 .addGap(18, 21, Short.MAX_VALUE)
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -559,6 +646,10 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         btnGuardar.setEnabled(false);
         lavelCodigoInmueble.setText(null);
         tbAltura.setEditable(true);
+<<<<<<< HEAD
+        
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         tbCodigoZona.setEditable(true);
         tbDireccion.setEditable(true);
         cbIdTipo.setEditable(true);
@@ -571,7 +662,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbCUITPropietario.removeAllItems();
         cbCUITPropietario.setEditable(false);
         tbSuperficie.setEditable(true);
+<<<<<<< HEAD
+        tbPrecio.setEnabled(true);
+=======
         spPrecio.setEnabled(true);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         btnBuscar.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnActualizar.setEnabled(false);
@@ -592,7 +687,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         tbCodigoZona.setText(null);
         tbDireccion.setText(null);
         tbSuperficie.setText(null);
+<<<<<<< HEAD
+        tbPrecio.setText(null);
+=======
         spPrecio.setValue(1);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         buttonGroup1.clearSelection();
         cbxIDInmueble.setSelected(false);
         cbxCUIT.setSelected(false);
@@ -603,10 +702,14 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbIdTipo.removeAllItems();
         cbIdInmueble.removeAllItems();
         cbCUITPropietario.removeAllItems();
+<<<<<<< HEAD
+        setColorREDComprobacion();
+=======
         btnComprobarEliminar.setBackground(Color.red.darker());
         btnComprobarBuscar.setBackground(Color.red.darker());
         btnComprobarActualizar.setBackground(Color.red.darker());
         btnComprobarGuardar.setBackground(Color.red.darker());
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
             
         lavelCUIT.setText("CUIT del Propieario");
         lavelCodigoTipo.setText("Codigo Tipo de Inmueble");
@@ -635,7 +738,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbCUITPropietario.setEditable(true);
         cbCUITPropietario.removeAllItems();
         cbCUITPropietario.setEditable(false);
+<<<<<<< HEAD
+        tbPrecio.setEnabled(true);
+=======
         spPrecio.setEnabled(true);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         btnBuscar.setEnabled(true);
         btnCargar.setEnabled(false);
         btnGuardar.setEnabled(false);
@@ -652,7 +759,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         tbCodigoZona.setText(null);
         tbDireccion.setText(null);
         tbSuperficie.setText(null);
+<<<<<<< HEAD
+        tbPrecio.setText(null);
+=======
         spPrecio.setValue(1);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         buttonGroup1.clearSelection();
         cbIdTipo.removeAllItems();
         cbIdInmueble.removeAllItems();
@@ -693,7 +804,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbCUITPropietario.setEditable(false);
         cbCUITPropietario.removeAllItems();
         cbCUITPropietario.setEditable(false);
+<<<<<<< HEAD
+        tbPrecio.setEnabled(false);
+=======
         spPrecio.setEnabled(false);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         labelDisponible.setText(null);
         lavelAltura.setText(null);
         lavelCUIT.setText(null);
@@ -721,7 +836,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         tbCodigoZona.setText(null);
         tbDireccion.setText(null);
         tbSuperficie.setText(null);
+<<<<<<< HEAD
+        tbPrecio.setText(null);
+=======
         spPrecio.setValue(1);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         buttonGroup1.clearSelection();
         cbxIDInmueble.setSelected(false);
         cbxCUIT.setSelected(false);
@@ -756,7 +875,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbCUITPropietario.setEditable(true);
         cbCUITPropietario.removeAllItems();
         cbCUITPropietario.setEditable(false);
+<<<<<<< HEAD
+        tbPrecio.setEnabled(true);
+=======
         spPrecio.setEnabled(true);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         btnBuscar.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnActualizar.setEnabled(false);
@@ -777,7 +900,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         tbCodigoZona.setText(null);
         tbDireccion.setText(null);
         tbSuperficie.setText(null);
+<<<<<<< HEAD
+        tbPrecio.setText(null);
+=======
         spPrecio.setValue(1);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         buttonGroup1.clearSelection();
         cbxIDInmueble.setSelected(false);
         cbxCUIT.setSelected(false);
@@ -829,7 +956,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbCUITPropietario.setEditable(false);
         cbCUITPropietario.removeAllItems();
         cbCUITPropietario.setEditable(false);
+<<<<<<< HEAD
+        tbPrecio.setEnabled(false);
+=======
         spPrecio.setEnabled(false);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         labelDisponible.setText(null);
         lavelAltura.setText(null);
         lavelCUIT.setText(null);
@@ -851,7 +982,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         tbCodigoZona.setText(null);
         tbDireccion.setText(null);
         tbSuperficie.setText(null);
+<<<<<<< HEAD
+        tbPrecio.setText(null);
+=======
         spPrecio.setValue(1);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         buttonGroup1.clearSelection();
         cbxIDInmueble.setSelected(false);
         cbxCUIT.setSelected(false);
@@ -877,7 +1012,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
                 inmueble.setAlturaInmueble(Integer.parseInt(tbAltura.getText()));
                 inmueble.setCodigoZona(Integer.parseInt(tbCodigoZona.getText()));
                 inmueble.setDireccion(tbDireccion.getText());
+<<<<<<< HEAD
+                inmueble.setPrecioBase(Double.parseDouble(tbPrecio.getText()));
+=======
                 inmueble.setPrecioBase(Double.parseDouble(spPrecio.getValue().toString()));
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
                 inmueble.setSuperficie(Double.parseDouble(tbSuperficie.getText()));
                 if(buttonGroup1.getSelection()==rbDisponibleN.getModel()){
                     inmueble.setDisponible(rbDisponibleN.getText());
@@ -919,7 +1058,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         }else if(tbSuperficie.getText().length()<1){
             habilitar = false;
             toString = toString +" "+"Superficie.";
+<<<<<<< HEAD
+        }else if(Double.parseDouble(tbPrecio.getText())<1){
+=======
         }else if(Double.parseDouble(spPrecio.getValue().toString())<1){
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
             habilitar = false;
             toString = toString +" "+"Precio Base.";
         }else if(tbAltura.getText().length()<1){
@@ -992,7 +1135,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         inmueble.setAlturaInmueble(Integer.parseInt(tbAltura.getText()));
         inmueble.setCodigoZona(Integer.parseInt(tbCodigoZona.getText()));
         inmueble.setDireccion(tbDireccion.getText());
+<<<<<<< HEAD
+        inmueble.setPrecioBase(Double.parseDouble(tbPrecio.getText()));
+=======
         inmueble.setPrecioBase(Double.parseDouble(spPrecio.getValue().toString()));
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         inmueble.setSuperficie(Double.parseDouble(tbSuperficie.getText()));
         if(buttonGroup1.getSelection()==rbDisponibleN.getModel()){
             inmueble.setDisponible(rbDisponibleN.getText());
@@ -1030,7 +1177,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         }else if(tbSuperficie.getText().length()<1){
             habilitar = false;
             toString = toString +" "+"Superficie.";
+<<<<<<< HEAD
+        }else if(Double.parseDouble(tbPrecio.getText())<1){
+=======
         }else if(Double.parseDouble(spPrecio.getValue().toString())<1){
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
             habilitar = false;
             toString = toString +" "+"Precio Base.";
         }else if(tbAltura.getText().length()<1){
@@ -1064,7 +1215,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         tbDireccion.setText(inmueble.getDireccion());
         tbAltura.setText(String.valueOf(inmueble.getAlturaInmueble()));
         tbSuperficie.setText(String.valueOf(inmueble.getSuperficie()));
+<<<<<<< HEAD
+        tbPrecio.setText(String.valueOf(inmueble.getPrecioBase()));
+=======
         spPrecio.setValue(inmueble.getPrecioBase());
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         tbCodigoZona.setText(String.valueOf(inmueble.getCodigoZona()));
         if(rbDisponibleN.getText().equals(inmueble.getDisponible())){
             buttonGroup1.setSelected(rbDisponibleN.getModel(), true);
@@ -1076,6 +1231,30 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         btnCargar.setEnabled(false);
         btnComprobarActualizar.setEnabled(true);
     }//GEN-LAST:event_btnCargarActionPerformed
+<<<<<<< HEAD
+
+    private void tbDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbDireccionKeyTyped
+        char tecla = evt.getKeyChar();
+        if(tecla >= '0'&& tecla <='9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbDireccionKeyTyped
+
+    private void tbAlturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbAlturaKeyTyped
+        char tecla = evt.getKeyChar();
+        if(tecla < '0'|| tecla >'9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbAlturaKeyTyped
+
+    private void tbSuperficieKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbSuperficieKeyTyped
+        char tecla = evt.getKeyChar();
+        if(((tecla < '0')|| (tecla >'9'))&& (tecla != '.')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbSuperficieKeyTyped
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
     
     public void setInicializarObjetos(){
         con = new Conexion();
@@ -1092,7 +1271,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         tbCodigoZona.setText(null);
         tbDireccion.setText(null);
         tbSuperficie.setText(null);
+<<<<<<< HEAD
+        tbPrecio.setText(null);
+=======
         spPrecio.setValue(1);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         buttonGroup1.clearSelection();
         cbxIDInmueble.setSelected(false);
         cbxCUIT.setSelected(false);
@@ -1108,7 +1291,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbIdInmueble.setEnabled(valor);
         cbCUITPropietario.setEnabled(valor);
         cbIdTipo.setEnabled(valor);
+<<<<<<< HEAD
+        tbPrecio.setEnabled(valor);
+=======
         spPrecio.setEnabled(valor);
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
         tbCodigoZona.setEditable(valor);
         tbDireccion.setEditable(valor);
         tbSuperficie.setEditable(valor);
@@ -1242,11 +1429,18 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbDisponibleN;
     private javax.swing.JRadioButton rbDisponibleY;
     private javax.swing.JScrollPane scroll;
+<<<<<<< HEAD
+=======
     private javax.swing.JSpinner spPrecio;
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
     private javax.swing.JTable tableInmueble;
     private javax.swing.JTextField tbAltura;
     private javax.swing.JTextField tbCodigoZona;
     private javax.swing.JTextField tbDireccion;
+<<<<<<< HEAD
+    private javax.swing.JTextField tbPrecio;
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
     private javax.swing.JTextField tbSuperficie;
     // End of variables declaration//GEN-END:variables
 }

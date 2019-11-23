@@ -10,7 +10,7 @@ public class Conexion {
     {
         try{
             Class.forName("org.mariadb.jdbc.Driver");
-            con= DriverManager.getConnection("jdbc:mysql://localhost/universidad","root","");   
+            con= DriverManager.getConnection("jdbc:mysql://localhost/inmobiliaria","root","");   
             System.out.println("Conexion Exitosa!");
         }
         catch(ClassNotFoundException | SQLException ex )

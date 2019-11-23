@@ -94,13 +94,16 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="tbDireccion" max="32767" attributes="0"/>
-                                  <Component id="spPrecio" alignment="0" max="32767" attributes="0"/>
                                   <Component id="tbCodigoZona" alignment="0" max="32767" attributes="0"/>
                                   <Component id="tbSuperficie" max="32767" attributes="0"/>
                                   <Component id="tbAltura" max="32767" attributes="0"/>
                                   <Component id="cbIdInmueble" pref="147" max="32767" attributes="0"/>
                                   <Component id="cbCUITPropietario" alignment="0" max="32767" attributes="0"/>
                                   <Component id="cbIdTipo" alignment="0" max="32767" attributes="0"/>
+<<<<<<< HEAD
+                                  <Component id="tbPrecio" alignment="1" max="32767" attributes="0"/>
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -196,7 +199,11 @@
                           <Component id="btnCargar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
+                      <Group type="103" groupAlignment="0" attributes="0">
+=======
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lavelDireccion" min="-2" max="-2" attributes="0"/>
@@ -212,10 +219,17 @@
                                   <Component id="lavelSuperficie" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tbSuperficie" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+<<<<<<< HEAD
+                              <EmptySpace pref="10" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tbPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lavelPrecioBase" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lavelPrecioBase" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="spPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -240,7 +254,11 @@
                       </Group>
                   </Group>
               </Group>
+<<<<<<< HEAD
+              <EmptySpace type="separate" pref="26" max="32767" attributes="0"/>
+=======
               <EmptySpace type="separate" pref="21" max="32767" attributes="0"/>
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
               <Component id="scroll" min="-2" pref="332" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
@@ -313,6 +331,16 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tbDireccion">
+<<<<<<< HEAD
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbDireccionKeyTyped"/>
+      </Events>
+=======
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
@@ -325,6 +353,7 @@
           <SpinnerModel initial="1.0" maximum="9999999.0" minimum="1.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
         </Property>
       </Properties>
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
     </Component>
     <Component class="javax.swing.JTextField" name="tbCodigoZona">
       <Properties>
@@ -332,6 +361,12 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
+<<<<<<< HEAD
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbAlturaKeyTyped"/>
+      </Events>
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
     </Component>
     <Component class="javax.swing.JTextField" name="tbSuperficie">
       <Properties>
@@ -339,6 +374,12 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
+<<<<<<< HEAD
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbSuperficieKeyTyped"/>
+      </Events>
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
     </Component>
     <Component class="javax.swing.JTextField" name="tbAltura">
       <Properties>
@@ -346,6 +387,12 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
+<<<<<<< HEAD
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbAlturaKeyTyped"/>
+      </Events>
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
       </AuxValues>
@@ -854,5 +901,18 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
+    <Component class="javax.swing.JTextField" name="tbPrecio">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbSuperficieKeyTyped"/>
+      </Events>
+    </Component>
+=======
+>>>>>>> fdeae12a019d0338e3a47b7c91fe48c519c4a16b
   </SubComponents>
 </Form>

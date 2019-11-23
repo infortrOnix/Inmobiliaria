@@ -23,8 +23,8 @@ public class PropietarioData {
    //crea conexion 
     Connection con = null;
     
-    public PropietarioData(ConexionN conexion){
-        con=conexion.getConexion();//obtengo conexion
+    public PropietarioData(Conexion conexion){
+        con=conexion.getConnection();//obtengo conexion
     }
 
     public PropietarioData() {
