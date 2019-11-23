@@ -12,10 +12,10 @@ import javax.swing.JOptionPane;
 /**
  *
  * @kaiserkey
- * 
+ * implements ActionListener, MouseListener
  */
-public class Inmobiliaria implements ActionListener, MouseListener{
-    private Conexion con;
+public class Inmobiliaria {
+    /*private Conexion con;
     private MenuPrincipal menuPrincipal;
     private Inmueble inmueble;
     private InmuebleData inmuebleData;
@@ -339,5 +339,5 @@ public class Inmobiliaria implements ActionListener, MouseListener{
     @Override
     public void mouseExited(MouseEvent e) {
     }
-    
+    */
 }
