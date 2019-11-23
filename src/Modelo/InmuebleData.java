@@ -14,8 +14,6 @@ import java.util.ArrayList;
  */
 public class InmuebleData {
     private Connection con;
-    private ArrayList<Inmueble> inmuebles;
-    
 
     public InmuebleData(Conexion conexion){
          try
@@ -28,7 +26,7 @@ public class InmuebleData {
         }
     }
     
-    public void guardarInmueble(Inmueble inmueble, Propietario propietario,tipoInmueble tipoInmueble){
+    public boolean guardarInmueble(Inmueble inmueble, Propietario propietario,tipoInmueble tipoInmueble){
         
         
         try {
@@ -55,21 +53,24 @@ public class InmuebleData {
             int count = ps.executeUpdate();//Nos retorna un entero que equivale a la cantidad de campos afectados
             if(count > 0){
                 System.out.println("Se guardo el imueble correctamente!!");
+                ps.close();//CERRAMOS EL STATEMENTS
+                return true;
             }else{
                 System.out.println("No se puede guardar el inmueble");
+                ps.close();//CERRAMOS EL STATEMENTS
+                return false;
             }
-            ps.close();//CERRAMOS EL STATEMENTS
             
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo insertar(GUARDAR)..."+ex.getMessage());
+            return false;
         }
     }
     
-    public void buscarInmueble(Inmueble inmueble){
+    public boolean buscarInmueble(Inmueble inmueble){
         try{
             String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
-            
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, inmueble.getIdInmueble());
             ResultSet rs=ps.executeQuery();//ejecuta la busqueda
@@ -94,21 +95,25 @@ public class InmuebleData {
                 inmueble.setCodigoZona(rs.getInt("codigoZona"));
                 inmueble.setDisponible(rs.getString("disponible"));
             }
+            ps.close();//CERRAMOS EL STATEMENTS
             
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
+            return false;
         }
+        return true;
     }
     
-        public void buscarTodosInmuebles(){
+    public ArrayList<Inmueble> buscarInmueblePor(String nombre, String valor){
+        Inmueble inmueble = null;
+        ArrayList<Inmueble> inmuebles = new ArrayList<Inmueble>();
         try{
-            String sql = "SELECT * FROM inmueble";
-            
+            String sql = "SELECT * FROM inmueble WHERE"+nombre+"=?";
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, valor);
             ResultSet rs=ps.executeQuery();//ejecuta la busqueda
-            inmuebles = new ArrayList<Inmueble>();
-            Inmueble inmueble;
+            
             while(rs.next()){//Muestra los campos obtenidos
                 inmueble = new Inmueble();
                 inmueble.setIdInmueble(rs.getInt("idInmueble"));
@@ -122,42 +127,46 @@ public class InmuebleData {
                 inmueble.setDisponible(rs.getString("disponible"));
                 inmuebles.add(inmueble);
             }
+            ps.close();//CERRAMOS EL STATEMENTS
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
+            
+        }
+        return inmuebles;
+    }
+    
+        public ArrayList<Inmueble> buscarTodosInmuebles(){
+            ArrayList<Inmueble> listarInmuebles = new ArrayList<Inmueble>();
+            Inmueble inmueble = null;
+            try{
+            String sql = "SELECT * FROM inmueble";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();//ejecuta la busqueda
+            
+            while(rs.next()){//Muestra los campos obtenidos
+                inmueble = new Inmueble();
+                inmueble.setIdInmueble(rs.getInt("idInmueble"));
+                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
+                inmueble.setDireccion(rs.getString("direccion"));
+                inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
+                inmueble.setSuperficie(rs.getDouble("superficie"));
+                inmueble.setPrecioBase(rs.getDouble("precioBase"));
+                inmueble.setCodigoZona(rs.getInt("codigoZona"));
+                inmueble.setDisponible(rs.getString("disponible"));
+                listarInmuebles.add(inmueble);
+            }
             
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
         }
+        return listarInmuebles;
     }
     
-    public Inmueble buscarInmueble(int idInmueble)// metodo sobrecargado
-    {
-        Inmueble in = new Inmueble();
-        try{
-            String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
-            
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idInmueble);
-            ResultSet rs=ps.executeQuery();
-                       
-            while(rs.next())
-            {                
-                in.setIdInmueble(rs.getInt("idInmueble"));
-                in.setIdPropietario(rs.getInt("idPropietario"));
-                in.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
-                in.setDireccion(rs.getString("direccion"));
-                in.setAlturaInmueble(rs.getInt("alturaInmueble"));
-                in.setSuperficie(rs.getDouble("superficie"));
-                in.setPrecioBase(rs.getDouble("precioBase"));
-                in.setCodigoZona(rs.getInt("codigoZona"));
-                in.setDisponible(rs.getString("disponible"));                              
-            }            
-        }catch(SQLException ex){
-            System.out.println( "No se ha podido encontrar");
-        }
-        return in;
-    }
-    
-    public void borrarInmueble(int idInmueble){
+    public boolean borrarInmueble(int idInmueble){
         try{
             String sql = "DELETE FROM inmueble WHERE idInmueble=?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -165,18 +174,23 @@ public class InmuebleData {
             int count = ps.executeUpdate();
             if(count > 0){
                 System.out.println("Se ha borrado el inmueble con el ID: "+idInmueble);
+                ps.close();//CERRAMOS EL STATEMENTS
+                return true;
             }else{
                 System.out.println("No se pudo borrar ya que el ID no existe");
+                ps.close();//CERRAMOS EL STATEMENTS
+                return false;
             }
-            ps.close();
+            
             
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo borrar..."+ex.getMessage());
+            return false;
         }
     }
     
-    public void actualizarInmueble(Inmueble inmueble, Propietario propietario, tipoInmueble tipoInmueble){
+    public boolean actualizarInmueble(Inmueble inmueble, Propietario propietario, tipoInmueble tipoInmueble){
         try{
             String sql = "UPDATE inmueble SET idPropietario=?,"
                 + "idTipoInmueble=?,"
@@ -202,13 +216,17 @@ public class InmuebleData {
             int count = ps.executeUpdate();//Nos retorna un entero que equivale a la cantidad de campos afectados
             if(count > 0){
                 System.out.println("Se actualizo correctamente");
+                ps.close();//CERRAMOS EL STATEMENTS
+                return true;
             }else{
                 System.out.println("No se puede actualizar");
+                ps.close();//CERRAMOS EL STATEMENTS
+                return false;
             }
-            ps.close();//CERRAMOS EL STATEMENTS
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo actualizar..."+ex.getMessage());
+            return false;
         }
     }
 }
