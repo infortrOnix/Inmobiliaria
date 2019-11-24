@@ -95,22 +95,47 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         tbApellido.setBackground(new java.awt.Color(0, 0, 51));
         tbApellido.setForeground(new java.awt.Color(255, 255, 255));
         tbApellido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tbApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbApellidoKeyTyped(evt);
+            }
+        });
 
         tbLugarTrabajo.setBackground(new java.awt.Color(0, 0, 51));
         tbLugarTrabajo.setForeground(new java.awt.Color(255, 255, 255));
         tbLugarTrabajo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tbLugarTrabajo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbLugarTrabajoKeyTyped(evt);
+            }
+        });
 
         tbNombreGarante.setBackground(new java.awt.Color(0, 0, 51));
         tbNombreGarante.setForeground(new java.awt.Color(255, 255, 255));
         tbNombreGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tbNombreGarante.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbNombreGaranteKeyTyped(evt);
+            }
+        });
 
         tbDniGarante.setBackground(new java.awt.Color(0, 0, 51));
         tbDniGarante.setForeground(new java.awt.Color(255, 255, 255));
         tbDniGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tbDniGarante.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbDniGaranteKeyTyped(evt);
+            }
+        });
 
         tbNombre.setBackground(new java.awt.Color(0, 0, 51));
         tbNombre.setForeground(new java.awt.Color(255, 255, 255));
         tbNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tbNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbNombreKeyTyped(evt);
+            }
+        });
 
         tbCuilInquilino.setBackground(new java.awt.Color(0, 0, 51));
         tbCuilInquilino.setForeground(new java.awt.Color(255, 255, 255));
@@ -380,11 +405,77 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void tbCuilInquilinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyTyped
-        int tecla = evt.getKeyCode();
-        if(tecla >= 47 || tecla <=57){
+        char tecla = evt.getKeyChar();
+        if(tecla < '0' || tecla >'9')
+        {
+            evt.consume();
+        }
+        
+        if(tbCuilInquilino.getText().length() >= 11)
+        {
             evt.consume();
         }
     }//GEN-LAST:event_tbCuilInquilinoKeyTyped
+
+    private void tbNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNombreKeyTyped
+        char tecla = evt.getKeyChar();
+        if(!Character.isAlphabetic(tecla))
+        {
+            evt.consume();
+        }
+        if(tbNombre.getText().length() >= 20)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbNombreKeyTyped
+
+    private void tbApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbApellidoKeyTyped
+        char tecla = evt.getKeyChar();
+        if(!Character.isAlphabetic(tecla))
+        {
+            evt.consume();
+        }
+        if(tbApellido.getText().length() >= 20)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbApellidoKeyTyped
+
+    private void tbLugarTrabajoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbLugarTrabajoKeyTyped
+        char tecla = evt.getKeyChar();
+        if(!Character.isAlphabetic(tecla))
+        {
+            evt.consume();
+        }
+        if(tbLugarTrabajo.getText().length() >= 50)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbLugarTrabajoKeyTyped
+
+    private void tbNombreGaranteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNombreGaranteKeyTyped
+        char tecla = evt.getKeyChar();
+        if(!Character.isAlphabetic(tecla))
+        {
+            evt.consume();
+        }
+        if(tbNombreGarante.getText().length() >= 20)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbNombreGaranteKeyTyped
+
+    private void tbDniGaranteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbDniGaranteKeyTyped
+        char tecla = evt.getKeyChar();
+        if(tecla < '0' || tecla >'9')
+        {
+            evt.consume();
+        }
+        if(tbDniGarante.getText().length() >= 8)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbDniGaranteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

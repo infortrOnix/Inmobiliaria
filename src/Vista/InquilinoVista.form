@@ -230,6 +230,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbApellidoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tbLugarTrabajo">
           <Properties>
@@ -245,6 +248,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbLugarTrabajoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tbNombreGarante">
           <Properties>
@@ -260,6 +266,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbNombreGaranteKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tbDniGarante">
           <Properties>
@@ -275,6 +284,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbDniGaranteKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tbNombre">
           <Properties>
@@ -290,6 +302,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbNombreKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tbCuilInquilino">
           <Properties>
