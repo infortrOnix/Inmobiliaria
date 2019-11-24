@@ -1,5 +1,6 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 
 
 
@@ -89,6 +90,9 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         tbCuilInquilino.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbCuilInquilinoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbCuilInquilinoKeyTyped(evt);
             }
         });
 
@@ -273,7 +277,7 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 23, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -317,21 +321,24 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void tbCuilInquilinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbCuilInquilinoFocusGained
-        eventoTeclado caracter = new eventoTeclado();
-        
-        addKeyListener(caracter);
+
     }//GEN-LAST:event_tbCuilInquilinoFocusGained
 
     private void tbCuilInquilinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyPressed
             
-        int codigo = evt.getKeyCode();
-        if(codigo >= 48 || codigo <= 57)
-        {
-            //tbCuilInquilino.setText(codigo+"");
-        System.out.println(codigo);
-        }
+       
      
     }//GEN-LAST:event_tbCuilInquilinoKeyPressed
+
+    private void tbCuilInquilinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyTyped
+        char codigo = evt.getKeyChar();
+        
+        if(Character.isLetter(codigo))
+        {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbCuilInquilinoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -359,36 +366,3 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tbNombreGarante;
     // End of variables declaration//GEN-END:variables
 }
-
-    class eventoTeclado implements KeyListener
-    {
-        int codigo;
-        
-        public int getEntero(int entero)
-        {
-            return entero;
-        }
-        
-        @Override
-        public void keyTyped(KeyEvent e) {
-            
-        }
-
-        @Override
-        public void keyPressed(KeyEvent e) {
-            
-            codigo = e.getKeyCode();
-            if(codigo >= 48 || codigo <= 57)
-            {
-                getEntero(codigo);
-            }
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-            
-        }
-        
-
-
-    }
