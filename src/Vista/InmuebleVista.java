@@ -172,12 +172,32 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         labelDisponible.setText("Disponible");
 
         tbDireccion.setForeground(new java.awt.Color(0, 0, 0));
+        tbDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbDireccionKeyTyped(evt);
+            }
+        });
 
         tbCodigoZona.setForeground(new java.awt.Color(0, 0, 0));
+        tbCodigoZona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbAlturaKeyTyped(evt);
+            }
+        });
 
         tbSuperficie.setForeground(new java.awt.Color(0, 0, 0));
+        tbSuperficie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbSuperficieKeyTyped(evt);
+            }
+        });
 
         tbAltura.setForeground(new java.awt.Color(0, 0, 0));
+        tbAltura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbAlturaKeyTyped(evt);
+            }
+        });
 
         rbDisponibleY.setBackground(new java.awt.Color(156, 193, 118));
         rbDisponibleY.setForeground(new java.awt.Color(0, 0, 0));
@@ -404,6 +424,11 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         });
 
         tbPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        tbPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbSuperficieKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1076,6 +1101,28 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         btnCargar.setEnabled(false);
         btnComprobarActualizar.setEnabled(true);
     }//GEN-LAST:event_btnCargarActionPerformed
+
+    private void tbDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbDireccionKeyTyped
+        char tecla = evt.getKeyChar();
+        if(tecla >= '0' && tecla <='9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbDireccionKeyTyped
+
+    private void tbAlturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbAlturaKeyTyped
+        char tecla = evt.getKeyChar();
+        if(tecla < '0' || tecla >'9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbAlturaKeyTyped
+
+    private void tbSuperficieKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbSuperficieKeyTyped
+        char tecla = evt.getKeyChar();
+        if((tecla < '0' || tecla >'9')&& tecla != '.'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbSuperficieKeyTyped
+    
     
     public void setInicializarObjetos(){
         con = new Conexion();
@@ -1200,6 +1247,9 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
         cbxDisponible.setSelected(valor);
     }
 
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
