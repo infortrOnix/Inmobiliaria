@@ -45,7 +45,6 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         lblDniGarante = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
         lblLugarGarante = new javax.swing.JLabel();
-        tbCuilInquilino = new javax.swing.JTextField();
         tbNombre = new javax.swing.JTextField();
         tbLugarTrabajo = new javax.swing.JTextField();
         tbApellido = new javax.swing.JTextField();
@@ -128,21 +127,6 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         lblLugarGarante.setForeground(new java.awt.Color(255, 255, 255));
         lblLugarGarante.setText("Lugar de Trabajo");
 
-        tbCuilInquilino.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tbCuilInquilino.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tbCuilInquilinoFocusGained(evt);
-            }
-        });
-        tbCuilInquilino.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tbCuilInquilinoKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tbCuilInquilinoKeyTyped(evt);
-            }
-        });
-
         tbNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         tbLugarTrabajo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -167,8 +151,7 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
                 .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Fondo1Layout.createSequentialGroup()
                         .addComponent(lblCuilInquilino)
-                        .addGap(86, 86, 86)
-                        .addComponent(tbCuilInquilino))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(Fondo1Layout.createSequentialGroup()
                         .addComponent(lblNombre)
                         .addGap(123, 123, 123)
@@ -201,10 +184,8 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
                 .addGap(13, 13, 13)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbCuilInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCuilInquilino))
-                .addGap(16, 16, 16)
+                .addComponent(lblCuilInquilino)
+                .addGap(22, 22, 22)
                 .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(tbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -323,7 +304,7 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -334,7 +315,9 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -357,24 +340,6 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         
        
     }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void tbCuilInquilinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbCuilInquilinoFocusGained
-
-    }//GEN-LAST:event_tbCuilInquilinoFocusGained
-
-    private void tbCuilInquilinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyPressed
-        char tecla = evt.getKeyChar();
-        if(tecla < '0' || tecla >'9'){
-            evt.consume();
-            
-        }
-       
-     
-    }//GEN-LAST:event_tbCuilInquilinoKeyPressed
-
-    private void tbCuilInquilinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyTyped
-
-    }//GEN-LAST:event_tbCuilInquilinoKeyTyped
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         InquilinoData inquilinoData = new InquilinoData();
@@ -439,7 +404,6 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreGarante;
     private javax.swing.JTextField tbApellido;
-    private javax.swing.JTextField tbCuilInquilino;
     private javax.swing.JTextField tbDniGarante;
     private javax.swing.JTextField tbLugarTrabajo;
     private javax.swing.JTextField tbNombre;
