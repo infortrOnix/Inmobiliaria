@@ -14,7 +14,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         setTitle("Inmobiliaria");
-        setSize(800,600);
+        setSize(850,650);
     }
 
 
