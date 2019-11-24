@@ -1,3 +1,4 @@
+
 package inmobiliaria;
 
 import Modelo.*;
@@ -12,6 +13,7 @@ public class Inmobiliaria {
     public static void main(String[] args) {
         MenuPrincipal menuPrincipal;
         menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
        
     }
     

@@ -158,7 +158,7 @@ public class ContratoDataF {
                 c.setFechaFinal(rs.getDate("fechaFinal"));
                 c.setestado(rs.getString("estado"));
                 c.setIdInquilino(inquilino.Buscar(rs.getInt("idInquilino")) );
-                c.setIdImueble(inmueble.buscarInmueble(rs.getInt("idInmueble"))); 
+                c.setIdImueble(inmueble.buscarInmueblesPorID(rs.getInt("idInmueble"))); 
                 
                 lista.add(c);
             }

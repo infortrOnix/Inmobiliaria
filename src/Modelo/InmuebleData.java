@@ -1,3 +1,4 @@
+
 package Modelo;
 
 import java.sql.Connection;
@@ -104,17 +105,16 @@ public class InmuebleData {
         return true;
     }
     
-    public Inmueble buscarInmueble(int idInmueble){
-        Inmueble inmueble=new Inmueble();
-        String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
-        try
-        {
-            
+        public Inmueble buscarInmueblesPorID(int idInmueble){
+        Inmueble inmueble = null;
+        try{
+            String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idInmueble);
             ResultSet rs=ps.executeQuery();//ejecuta la busqueda
-            while(rs.next())
-            {            
+            
+            while(rs.next()){//Muestra los campos obtenidos
+                inmueble = new Inmueble();
                 inmueble.setIdInmueble(rs.getInt("idInmueble"));
                 inmueble.setIdPropietario(rs.getInt("idPropietario"));
                 inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
@@ -127,10 +127,9 @@ public class InmuebleData {
             }
             ps.close();//CERRAMOS EL STATEMENTS
             
-        }
-        catch(SQLException ex)
-        {
-            System.out.println( "ERROR: no se pudo buscar...");
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
         }
         return inmueble;
     }
