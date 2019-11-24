@@ -1,3 +1,4 @@
+
 package Modelo;
 
 import java.sql.Connection;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @kaiserkey
- *
+ * 
  */
 public class InmuebleData {
     private Connection con;
@@ -24,10 +25,10 @@ public class InmuebleData {
             System.out.println("Error de conexion1");
         }
     }
-
+    
     public boolean guardarInmueble(Inmueble inmueble, Propietario propietario,tipoInmueble tipoInmueble){
-
-
+        
+        
         try {
             String sql = "INSERT INTO inmueble (idPropietario,"
                 + "idTipoInmueble,"
@@ -37,9 +38,9 @@ public class InmuebleData {
                 + "precioBase,"
                 + "codigoZona,"
                 + "disponible) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
+            
             PreparedStatement ps = con.prepareStatement(sql);
-
+            
             ps.setInt(1, propietario.getCuitPropietario());
             ps.setInt(2, tipoInmueble.getIdTipo());
             ps.setString(3, inmueble.getDireccion());
@@ -48,7 +49,7 @@ public class InmuebleData {
             ps.setDouble(6, inmueble.getPrecioBase());
             ps.setInt(7, inmueble.getCodigoZona());
             ps.setString(8, inmueble.getDisponible());
-
+            
             int count = ps.executeUpdate();//Nos retorna un entero que equivale a la cantidad de campos afectados
             if(count > 0){
                 System.out.println("Se guardo el imueble correctamente!!");
@@ -59,14 +60,14 @@ public class InmuebleData {
                 ps.close();//CERRAMOS EL STATEMENTS
                 return false;
             }
-
+            
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo insertar(GUARDAR)..."+ex.getMessage());
             return false;
         }
     }
-
+    
     public boolean buscarInmueble(Inmueble inmueble){
         try{
             String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
@@ -74,7 +75,7 @@ public class InmuebleData {
             ps.setInt(1, inmueble.getIdInmueble());
             ResultSet rs=ps.executeQuery();//ejecuta la busqueda
             while(rs.next()){//Muestra los campos obtenidos
-
+                
                 System.out.println("\nID INMUEBLRE: "+rs.getInt("idInmueble"));
                 System.out.println("ID PROPIETARIO: "+rs.getInt("idPropietario"));
                 System.out.println("ID TIPO: "+rs.getInt("idTipoInmueble"));
@@ -95,7 +96,7 @@ public class InmuebleData {
                 inmueble.setDisponible(rs.getString("disponible"));
             }
             ps.close();//CERRAMOS EL STATEMENTS
-
+            
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
@@ -103,35 +104,36 @@ public class InmuebleData {
         }
         return true;
     }
-
-    public Inmueble buscarInmuebles(int idInmueble)// metodo sobrecargado
-    {
-        Inmueble in = new Inmueble();
+    
+        public Inmueble buscarInmueblesPorID(int idInmueble){
+        Inmueble inmueble = null;
         try{
             String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
-
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idInmueble);
-            ResultSet rs=ps.executeQuery();
-
-            while(rs.next())
-            {
-                in.setIdInmueble(rs.getInt("idInmueble"));
-                in.setIdPropietario(rs.getInt("idPropietario"));
-                in.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
-                in.setDireccion(rs.getString("direccion"));
-                in.setAlturaInmueble(rs.getInt("alturaInmueble"));
-                in.setSuperficie(rs.getDouble("superficie"));
-                in.setPrecioBase(rs.getDouble("precioBase"));
-                in.setCodigoZona(rs.getInt("codigoZona"));
-                in.setDisponible(rs.getString("disponible"));
+            ResultSet rs=ps.executeQuery();//ejecuta la busqueda
+            
+            while(rs.next()){//Muestra los campos obtenidos
+                inmueble = new Inmueble();
+                inmueble.setIdInmueble(rs.getInt("idInmueble"));
+                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
+                inmueble.setDireccion(rs.getString("direccion"));
+                inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
+                inmueble.setSuperficie(rs.getDouble("superficie"));
+                inmueble.setPrecioBase(rs.getDouble("precioBase"));
+                inmueble.setCodigoZona(rs.getInt("codigoZona"));
+                inmueble.setDisponible(rs.getString("disponible"));
             }
+            ps.close();//CERRAMOS EL STATEMENTS
+            
         }catch(SQLException ex){
-            System.out.println( "No se ha podido encontrar");
+            ex.printStackTrace();
+            System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
         }
-        return in;
+        return inmueble;
     }
-
+    
     public ArrayList<Inmueble> buscarInmueblePor(String nombre, String valor){
         Inmueble inmueble = null;
         ArrayList<Inmueble> inmuebles = new ArrayList<Inmueble>();
@@ -140,7 +142,7 @@ public class InmuebleData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, valor);
             ResultSet rs=ps.executeQuery();//ejecuta la busqueda
-
+            
             while(rs.next()){//Muestra los campos obtenidos
                 inmueble = new Inmueble();
                 inmueble.setIdInmueble(rs.getInt("idInmueble"));
@@ -155,15 +157,15 @@ public class InmuebleData {
                 inmuebles.add(inmueble);
             }
             ps.close();//CERRAMOS EL STATEMENTS
-
+            
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
-
+            
         }
         return inmuebles;
     }
-
+    
         public ArrayList<Inmueble> buscarTodosInmuebles(){
             ArrayList<Inmueble> listarInmuebles = new ArrayList<Inmueble>();
             Inmueble inmueble = null;
@@ -171,7 +173,7 @@ public class InmuebleData {
             String sql = "SELECT * FROM inmueble";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs=ps.executeQuery();//ejecuta la busqueda
-
+            
             while(rs.next()){//Muestra los campos obtenidos
                 inmueble = new Inmueble();
                 inmueble.setIdInmueble(rs.getInt("idInmueble"));
@@ -185,14 +187,14 @@ public class InmuebleData {
                 inmueble.setDisponible(rs.getString("disponible"));
                 listarInmuebles.add(inmueble);
             }
-
+            
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
         }
         return listarInmuebles;
     }
-
+    
     public boolean borrarInmueble(int idInmueble){
         try{
             String sql = "DELETE FROM inmueble WHERE idInmueble=?";
@@ -208,15 +210,15 @@ public class InmuebleData {
                 ps.close();//CERRAMOS EL STATEMENTS
                 return false;
             }
-
-
+            
+            
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println( "ERROR: no se pudo borrar..."+ex.getMessage());
             return false;
         }
     }
-
+    
     public boolean actualizarInmueble(Inmueble inmueble, Propietario propietario, tipoInmueble tipoInmueble){
         try{
             String sql = "UPDATE inmueble SET idPropietario=?,"
@@ -228,7 +230,7 @@ public class InmuebleData {
                 + "codigoZona=?,"
                 + "disponible=?"
                 + "WHERE idInmueble=?";
-
+            
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, propietario.getCuitPropietario());
             ps.setInt(2, tipoInmueble.getIdTipo());
@@ -239,7 +241,7 @@ public class InmuebleData {
             ps.setInt(7, inmueble.getCodigoZona());
             ps.setString(8, inmueble.getDisponible());
             ps.setInt(9, inmueble.getIdInmueble());
-
+            
             int count = ps.executeUpdate();//Nos retorna un entero que equivale a la cantidad de campos afectados
             if(count > 0){
                 System.out.println("Se actualizo correctamente");

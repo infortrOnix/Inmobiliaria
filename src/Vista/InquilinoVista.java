@@ -1,6 +1,11 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Vista;
+import javafx.scene.image.Image;
+import javax.imageio.*;
 
 
 /**
@@ -16,11 +21,7 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
      */
     public InquilinoVista() {
         initComponents();
-        
     }
-   
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,26 +34,26 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lblNombreGarante = new javax.swing.JLabel();
-        lblCuilInquilino = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        lblDniGarante = new javax.swing.JLabel();
-        lblLugarGarante = new javax.swing.JLabel();
-        lblApellido = new javax.swing.JLabel();
-        tbCuilInquilino = new javax.swing.JTextField();
-        tbNombre = new javax.swing.JTextField();
-        tbLugarTrabajo = new javax.swing.JTextField();
-        tbApellido = new javax.swing.JTextField();
-        tbDniGarante = new javax.swing.JTextField();
-        tbNombreGarante = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        btnEliminar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        dgvDatos = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setFocusCycleRoot(false);
@@ -62,45 +63,23 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
-        lblNombreGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblNombreGarante.setText("Nombre Del Garante");
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Nombre Del Garante");
 
-        lblCuilInquilino.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblCuilInquilino.setText("Cuil Inquilino");
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("Cuil Inquilino");
 
-        lblNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblNombre.setText("Nombre");
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Nombre");
 
-        lblDniGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDniGarante.setText("Dni Del Garante");
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setText("Dni Del Garante");
 
-        lblLugarGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLugarGarante.setText("Lugar de Trabajo");
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setText("Lugar de Trabajo");
 
-        lblApellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblApellido.setText("Apellido");
-
-        tbCuilInquilino.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tbCuilInquilino.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tbCuilInquilinoFocusGained(evt);
-            }
-        });
-        tbCuilInquilino.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tbCuilInquilinoKeyPressed(evt);
-            }
-        });
-
-        tbNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tbLugarTrabajo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tbApellido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tbDniGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tbNombreGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("Apellido");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -114,29 +93,29 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblCuilInquilino)
+                        .addComponent(jLabel5)
                         .addGap(86, 86, 86)
-                        .addComponent(tbCuilInquilino))
+                        .addComponent(jTextField1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblNombre)
+                        .addComponent(jLabel4)
                         .addGap(123, 123, 123)
-                        .addComponent(tbNombre))
+                        .addComponent(jTextField2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblLugarGarante)
+                        .addComponent(jLabel2)
                         .addGap(60, 60, 60)
-                        .addComponent(tbLugarTrabajo))
+                        .addComponent(jTextField3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblApellido)
+                        .addComponent(jLabel1)
                         .addGap(121, 121, 121)
-                        .addComponent(tbApellido))
+                        .addComponent(jTextField4))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblNombreGarante)
+                        .addComponent(jLabel6)
                         .addGap(36, 36, 36)
-                        .addComponent(tbNombreGarante))
+                        .addComponent(jTextField6))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblDniGarante)
+                        .addComponent(jLabel3)
                         .addGap(68, 68, 68)
-                        .addComponent(tbDniGarante)))
+                        .addComponent(jTextField5)))
                 .addGap(12, 12, 12))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
@@ -150,55 +129,51 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbCuilInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCuilInquilino))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(tbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblApellido)
-                    .addComponent(tbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLugarGarante)
-                    .addComponent(tbLugarTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreGarante)
-                    .addComponent(tbNombreGarante, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDniGarante)
-                    .addComponent(tbDniGarante, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        btnEliminar.setBackground(new java.awt.Color(102, 102, 102));
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/basura.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/basura.png"))); // NOI18N
+        jButton1.setText("Eliminar");
 
-        btnGuardar.setBackground(new java.awt.Color(102, 102, 102));
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
+        jButton2.setText("Guardar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        btnBuscar.setBackground(new java.awt.Color(102, 102, 102));
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/investigacion.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.setBackground(new java.awt.Color(102, 102, 102));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/investigacion.png"))); // NOI18N
+        jButton4.setText("Buscar");
 
-        btnActualizar.setBackground(new java.awt.Color(102, 102, 102));
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/refrescar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.setBackground(new java.awt.Color(102, 102, 102));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/refrescar.png"))); // NOI18N
+        jButton5.setText("Actualizar");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -207,28 +182,27 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(btnGuardar)
+                .addComponent(jButton2)
                 .addGap(18, 18, 18)
-                .addComponent(btnEliminar)
+                .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
+                .addComponent(jButton4)
                 .addGap(18, 18, 18)
-                .addComponent(btnActualizar)
+                .addComponent(jButton5)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        dgvDatos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        dgvDatos.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -254,14 +228,14 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(dgvDatos);
-        if (dgvDatos.getColumnModel().getColumnCount() > 0) {
-            dgvDatos.getColumnModel().getColumn(0).setResizable(false);
-            dgvDatos.getColumnModel().getColumn(1).setResizable(false);
-            dgvDatos.getColumnModel().getColumn(2).setResizable(false);
-            dgvDatos.getColumnModel().getColumn(3).setResizable(false);
-            dgvDatos.getColumnModel().getColumn(4).setResizable(false);
-            dgvDatos.getColumnModel().getColumn(5).setResizable(false);
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+            jTable1.getColumnModel().getColumn(5).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -309,86 +283,33 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
-        
-        //inquilino.setNombre();
-       
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void tbCuilInquilinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbCuilInquilinoFocusGained
-        eventoTeclado caracter = new eventoTeclado();
-        
-        addKeyListener(caracter);
-    }//GEN-LAST:event_tbCuilInquilinoFocusGained
-
-    private void tbCuilInquilinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyPressed
-            
-        int codigo = evt.getKeyCode();
-        if(codigo >= 48 || codigo <= 57)
-        {
-            //tbCuilInquilino.setText(codigo+"");
-        System.out.println(codigo);
-        }
-     
-    }//GEN-LAST:event_tbCuilInquilinoKeyPressed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JTable dgvDatos;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblApellido;
-    private javax.swing.JLabel lblCuilInquilino;
-    private javax.swing.JLabel lblDniGarante;
-    private javax.swing.JLabel lblLugarGarante;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNombreGarante;
-    private javax.swing.JTextField tbApellido;
-    private javax.swing.JTextField tbCuilInquilino;
-    private javax.swing.JTextField tbDniGarante;
-    private javax.swing.JTextField tbLugarTrabajo;
-    private javax.swing.JTextField tbNombre;
-    private javax.swing.JTextField tbNombreGarante;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
-
-    class eventoTeclado implements KeyListener
-    {
-        int codigo;
-        
-        public int getEntero(int entero)
-        {
-            return entero;
-        }
-        
-        @Override
-        public void keyTyped(KeyEvent e) {
-            
-        }
-
-        @Override
-        public void keyPressed(KeyEvent e) {
-            
-            codigo = e.getKeyCode();
-            if(codigo >= 48 || codigo <= 57)
-            {
-                getEntero(codigo);
-            }
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-            
-        }
-        
-
-
-    }
