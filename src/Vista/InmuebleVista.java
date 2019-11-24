@@ -1250,6 +1250,7 @@ public class InmuebleVista extends javax.swing.JInternalFrame {
     
     
     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
