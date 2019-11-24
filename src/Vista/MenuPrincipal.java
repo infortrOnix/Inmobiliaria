@@ -80,6 +80,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuInquilino.setText("Inquilino");
 
         mInquilino.setText("Inquilino");
+        mInquilino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mInquilinoActionPerformed(evt);
+            }
+        });
         menuInquilino.add(mInquilino);
 
         bMenu.add(menuInquilino);
@@ -136,10 +141,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void mInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mInmuebleActionPerformed
             Escritorio.removeAll();
             Escritorio.repaint();
-            inmuebleVista=new InmuebleVista();
-            inmuebleVista.setVisible(true);
-            Escritorio.add(inmuebleVista);
-            Escritorio.moveToFront(inmuebleVista);
+            InquilinoVista inquilino=new InquilinoVista();
+            inquilino.setVisible(true);
+            Escritorio.add(inquilino);
+            Escritorio.moveToFront(inquilino);
     }//GEN-LAST:event_mInmuebleActionPerformed
 
     private void mPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mPropietarioActionPerformed
@@ -152,6 +157,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void mSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_mSalirActionPerformed
+
+    private void mInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mInquilinoActionPerformed
+        Escritorio.removeAll();
+            Escritorio.repaint();
+            inmuebleVista=new InmuebleVista();
+            inmuebleVista.setVisible(true);
+            Escritorio.add(inmuebleVista);
+            Escritorio.moveToFront(inmuebleVista);
+    }//GEN-LAST:event_mInquilinoActionPerformed
 
         /**
      * @param args the command line arguments

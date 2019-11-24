@@ -18,6 +18,9 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     public InquilinoVista() {
         initComponents();
         
+        setTitle("Inquilino");
+        setSize(800,600);
+        
     }
    
     
@@ -331,11 +334,8 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbCuilInquilinoKeyPressed
 
     private void tbCuilInquilinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyTyped
-        char codigo = evt.getKeyChar();
-        
-        if(Character.isLetter(codigo))
-        {
-            getToolkit().beep();
+        char tecla = evt.getKeyChar();
+        if(tecla < '0' || tecla >'9'){
             evt.consume();
         }
     }//GEN-LAST:event_tbCuilInquilinoKeyTyped
