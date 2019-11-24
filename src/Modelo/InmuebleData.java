@@ -105,6 +105,37 @@ public class InmuebleData {
         return true;
     }
     
+    public Inmueble buscarInmueble(int idInmueble){
+        Inmueble inmueble=new Inmueble();
+        String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
+        try
+        {
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idInmueble);
+            ResultSet rs=ps.executeQuery();//ejecuta la busqueda
+            while(rs.next())
+            {            
+                inmueble.setIdInmueble(rs.getInt("idInmueble"));
+                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
+                inmueble.setDireccion(rs.getString("direccion"));
+                inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
+                inmueble.setSuperficie(rs.getDouble("superficie"));
+                inmueble.setPrecioBase(rs.getDouble("precioBase"));
+                inmueble.setCodigoZona(rs.getInt("codigoZona"));
+                inmueble.setDisponible(rs.getString("disponible"));
+            }
+            ps.close();//CERRAMOS EL STATEMENTS
+            
+        }
+        catch(SQLException ex)
+        {
+            System.out.println( "ERROR: no se pudo buscar...");
+        }
+        return inmueble;
+    }
+    
     public ArrayList<Inmueble> buscarInmueblePor(String nombre, String valor){
         Inmueble inmueble = null;
         ArrayList<Inmueble> inmuebles = new ArrayList<Inmueble>();
