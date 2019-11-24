@@ -105,7 +105,7 @@ public class InmuebleData {
         return true;
     }
     
-    public Inmueble buscarInmueble(int idInmueble)// metodo sobrecargado
+    public Inmueble buscarInmuebles(int idInmueble)// metodo sobrecargado
     {
         Inmueble in = new Inmueble();
         try{
