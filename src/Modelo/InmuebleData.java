@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import java.sql.Connection;
@@ -105,6 +104,7 @@ public class InmuebleData {
         return true;
     }
     
+<<<<<<< HEAD
     public Inmueble buscarInmuebles(int idInmueble)// metodo sobrecargado
     {
         Inmueble in = new Inmueble();
@@ -129,6 +129,35 @@ public class InmuebleData {
             }            
         }catch(SQLException ex){
             System.out.println( "No se ha podido encontrar");
+=======
+    public Inmueble buscarInmueble(int idInmueble){
+        Inmueble inmueble=new Inmueble();
+        String sql = "SELECT * FROM inmueble WHERE idInmueble =?";
+        try
+        {
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idInmueble);
+            ResultSet rs=ps.executeQuery();//ejecuta la busqueda
+            while(rs.next())
+            {            
+                inmueble.setIdInmueble(rs.getInt("idInmueble"));
+                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
+                inmueble.setDireccion(rs.getString("direccion"));
+                inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
+                inmueble.setSuperficie(rs.getDouble("superficie"));
+                inmueble.setPrecioBase(rs.getDouble("precioBase"));
+                inmueble.setCodigoZona(rs.getInt("codigoZona"));
+                inmueble.setDisponible(rs.getString("disponible"));
+            }
+            ps.close();//CERRAMOS EL STATEMENTS
+            
+        }
+        catch(SQLException ex)
+        {
+            System.out.println( "ERROR: no se pudo buscar...");
+>>>>>>> 3aa93e93ffe8e6a5a5ebfd790f7bc7ca4572f080
         }
         return in;
     }
