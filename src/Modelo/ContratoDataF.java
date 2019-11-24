@@ -124,7 +124,7 @@ public class ContratoDataF {
                 contrato.setFechaFinal(rs.getDate("fechaFinal"));
                 contrato.setestado(rs.getString("estado"));
                 contrato.setIdInquilino(i.Buscar(rs.getInt("idInquilino")) );
-                contrato.setIdImueble(in.buscarInmueble(rs.getInt("idInmueble")));                                             
+                //contrato.setIdImueble(in.buscarInmueble(rs.getInt("idInmueble")));                                             
             }
             System.out.println("Se ha econtrado correctamente");
         }

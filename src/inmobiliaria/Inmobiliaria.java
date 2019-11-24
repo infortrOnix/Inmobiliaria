@@ -1,4 +1,3 @@
-
 package inmobiliaria;
 
 import Modelo.*;
