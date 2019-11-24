@@ -1,8 +1,6 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.JOptionPane;
 
-
+import Modelo.Inquilino;
+import Modelo.InquilinoData;
 
 /**
  *
@@ -21,6 +19,8 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         setTitle("Inquilino");
         setSize(800,600);
         
+        Fondo1.setVisible(true);
+        
     }
    
     
@@ -35,14 +35,16 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        lblNombreGarante = new javax.swing.JLabel();
-        lblCuilInquilino = new javax.swing.JLabel();
+        Fondo = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        dgvDatos = new javax.swing.JTable();
+        Fondo1 = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
+        lblCuilInquilino = new javax.swing.JLabel();
+        lblNombreGarante = new javax.swing.JLabel();
         lblDniGarante = new javax.swing.JLabel();
-        lblLugarGarante = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
+        lblLugarGarante = new javax.swing.JLabel();
         tbCuilInquilino = new javax.swing.JTextField();
         tbNombre = new javax.swing.JTextField();
         tbLugarTrabajo = new javax.swing.JTextField();
@@ -55,184 +57,12 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         btnGuardar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        dgvDatos = new javax.swing.JTable();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setFocusCycleRoot(false);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-
-        lblNombreGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblNombreGarante.setText("Nombre Del Garante");
-
-        lblCuilInquilino.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblCuilInquilino.setText("Cuil Inquilino");
-
-        lblNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblNombre.setText("Nombre");
-
-        lblDniGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDniGarante.setText("Dni Del Garante");
-
-        lblLugarGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLugarGarante.setText("Lugar de Trabajo");
-
-        lblApellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblApellido.setText("Apellido");
-
-        tbCuilInquilino.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tbCuilInquilino.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tbCuilInquilinoFocusGained(evt);
-            }
-        });
-        tbCuilInquilino.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tbCuilInquilinoKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tbCuilInquilinoKeyTyped(evt);
-            }
-        });
-
-        tbNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tbLugarTrabajo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tbApellido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tbDniGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tbNombreGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Datos de Inquilino");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblCuilInquilino)
-                        .addGap(86, 86, 86)
-                        .addComponent(tbCuilInquilino))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addGap(123, 123, 123)
-                        .addComponent(tbNombre))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblLugarGarante)
-                        .addGap(60, 60, 60)
-                        .addComponent(tbLugarTrabajo))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblApellido)
-                        .addGap(121, 121, 121)
-                        .addComponent(tbApellido))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblNombreGarante)
-                        .addGap(36, 36, 36)
-                        .addComponent(tbNombreGarante))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblDniGarante)
-                        .addGap(68, 68, 68)
-                        .addComponent(tbDniGarante)))
-                .addGap(12, 12, 12))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbCuilInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCuilInquilino))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(tbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblApellido)
-                    .addComponent(tbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLugarGarante)
-                    .addComponent(tbLugarTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreGarante)
-                    .addComponent(tbNombreGarante, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDniGarante)
-                    .addComponent(tbDniGarante, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        btnEliminar.setBackground(new java.awt.Color(102, 102, 102));
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/basura.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btnGuardar.setBackground(new java.awt.Color(102, 102, 102));
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-
-        btnBuscar.setBackground(new java.awt.Color(102, 102, 102));
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/investigacion.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btnActualizar.setBackground(new java.awt.Color(102, 102, 102));
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/refrescar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(btnGuardar)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminar)
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
-                .addGap(18, 18, 18)
-                .addComponent(btnActualizar)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+        Fondo.setBackground(new java.awt.Color(102, 102, 102));
+        Fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         dgvDatos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         dgvDatos.setModel(new javax.swing.table.DefaultTableModel(
@@ -271,30 +101,224 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
             dgvDatos.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        Fondo1.setForeground(new java.awt.Color(0, 0, 0));
+
+        lblNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setText("Nombre");
+
+        lblCuilInquilino.setBackground(new java.awt.Color(255, 255, 255));
+        lblCuilInquilino.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCuilInquilino.setForeground(new java.awt.Color(255, 255, 255));
+        lblCuilInquilino.setText("Cuil Inquilino");
+
+        lblNombreGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblNombreGarante.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreGarante.setText("Nombre Del Garante");
+
+        lblDniGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDniGarante.setForeground(new java.awt.Color(255, 255, 255));
+        lblDniGarante.setText("Dni Del Garante");
+
+        lblApellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setText("Apellido");
+
+        lblLugarGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblLugarGarante.setForeground(new java.awt.Color(255, 255, 255));
+        lblLugarGarante.setText("Lugar de Trabajo");
+
+        tbCuilInquilino.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tbCuilInquilino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tbCuilInquilinoFocusGained(evt);
+            }
+        });
+        tbCuilInquilino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbCuilInquilinoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbCuilInquilinoKeyTyped(evt);
+            }
+        });
+
+        tbNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        tbLugarTrabajo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        tbApellido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        tbDniGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        tbNombreGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Datos de Inquilino");
+
+        javax.swing.GroupLayout Fondo1Layout = new javax.swing.GroupLayout(Fondo1);
+        Fondo1.setLayout(Fondo1Layout);
+        Fondo1Layout.setHorizontalGroup(
+            Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Fondo1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Fondo1Layout.createSequentialGroup()
+                        .addComponent(lblCuilInquilino)
+                        .addGap(86, 86, 86)
+                        .addComponent(tbCuilInquilino))
+                    .addGroup(Fondo1Layout.createSequentialGroup()
+                        .addComponent(lblNombre)
+                        .addGap(123, 123, 123)
+                        .addComponent(tbNombre))
+                    .addGroup(Fondo1Layout.createSequentialGroup()
+                        .addComponent(lblLugarGarante)
+                        .addGap(60, 60, 60)
+                        .addComponent(tbLugarTrabajo))
+                    .addGroup(Fondo1Layout.createSequentialGroup()
+                        .addComponent(lblApellido)
+                        .addGap(121, 121, 121)
+                        .addComponent(tbApellido))
+                    .addGroup(Fondo1Layout.createSequentialGroup()
+                        .addComponent(lblNombreGarante)
+                        .addGap(36, 36, 36)
+                        .addComponent(tbNombreGarante))
+                    .addGroup(Fondo1Layout.createSequentialGroup()
+                        .addComponent(lblDniGarante)
+                        .addGap(68, 68, 68)
+                        .addComponent(tbDniGarante)))
+                .addGap(12, 12, 12))
+            .addGroup(Fondo1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+        Fondo1Layout.setVerticalGroup(
+            Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Fondo1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbCuilInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCuilInquilino))
+                .addGap(16, 16, 16)
+                .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(tbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblApellido)
+                    .addComponent(tbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLugarGarante)
+                    .addComponent(tbLugarTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreGarante)
+                    .addComponent(tbNombreGarante, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDniGarante)
+                    .addComponent(tbDniGarante, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        btnEliminar.setBackground(new java.awt.Color(102, 102, 102));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/basura.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnGuardar.setBackground(new java.awt.Color(102, 102, 102));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setBackground(new java.awt.Color(102, 102, 102));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/investigacion.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setBackground(new java.awt.Color(102, 102, 102));
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/refrescar.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(btnGuardar)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminar)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscar)
+                .addGap(18, 18, 18)
+                .addComponent(btnActualizar)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
+        Fondo.setLayout(FondoLayout);
+        FondoLayout.setHorizontalGroup(
+            FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 23, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addComponent(Fondo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        FondoLayout.setVerticalGroup(
+            FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FondoLayout.createSequentialGroup()
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Fondo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FondoLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -306,20 +330,31 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
+        Inquilino inquilino = new Inquilino();
+        inquilino.setCuilInquilino(Integer.parseInt(tbCuilInquilino.getText()));
+        inquilino.setNombre(tbNombre.getText());
+        inquilino.setApellido(tbApellido.getText());
+        inquilino.setLugarTrabajo(tbLugarTrabajo.getText());
+        inquilino.setNombreGarante(tbNombreGarante.getText());
+        inquilino.setDniGarante(Integer.parseInt(tbDniGarante.getText()));
         
-        //inquilino.setNombre();
+        InquilinoData inquilinoData = new InquilinoData();
+        
+        inquilinoData.Guardar(inquilino);
+        
+   
+        
        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -328,28 +363,73 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbCuilInquilinoFocusGained
 
     private void tbCuilInquilinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyPressed
+        char tecla = evt.getKeyChar();
+        if(tecla < '0' || tecla >'9'){
+            evt.consume();
             
+        }
        
      
     }//GEN-LAST:event_tbCuilInquilinoKeyPressed
 
     private void tbCuilInquilinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyTyped
-        char tecla = evt.getKeyChar();
-        if(tecla < '0' || tecla >'9'){
-            evt.consume();
-        }
+
     }//GEN-LAST:event_tbCuilInquilinoKeyTyped
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        InquilinoData inquilinoData = new InquilinoData();
+        inquilinoData.Eliminar(Integer.parseInt(tbCuilInquilino.getText()) );
+        
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        InquilinoData inquilinoData = new InquilinoData();
+        Inquilino inquilino;
+        
+        inquilino= inquilinoData.Buscar(Integer.parseInt(tbCuilInquilino.getText()));
+        tbCuilInquilino.setText(inquilino.getCuilInquilino()+"");
+        tbNombre.setText(inquilino.getNombre());
+        tbApellido.setText(inquilino.getApellido());
+        tbLugarTrabajo.setText(inquilino.getLugarTrabajo());
+        tbNombreGarante.setText(inquilino.getNombreGarante());
+        tbDniGarante.setText(inquilino.getDniGarante()+"");
+        
+        inquilino.setCuilInquilino(Integer.parseInt(tbCuilInquilino.getText()));
+        inquilino.setNombre(tbNombre.getText());
+        inquilino.setApellido(tbApellido.getText());
+        inquilino.setLugarTrabajo(tbLugarTrabajo.getText());
+        inquilino.setNombreGarante(tbNombreGarante.getText());
+        inquilino.setDniGarante(Integer.parseInt(tbDniGarante.getText()));
+        
+        inquilinoData.Modificar(inquilino);
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        InquilinoData inquilinoData = new InquilinoData();
+        Inquilino inquilino;
+        
+        inquilino= inquilinoData.Buscar(Integer.parseInt(tbCuilInquilino.getText()));
+        tbCuilInquilino.setText(inquilino.getCuilInquilino()+"");
+        tbNombre.setText(inquilino.getNombre());
+        tbApellido.setText(inquilino.getApellido());
+        tbLugarTrabajo.setText(inquilino.getLugarTrabajo());
+        tbNombreGarante.setText(inquilino.getNombreGarante());
+        tbDniGarante.setText(inquilino.getDniGarante()+"");
+        
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Fondo;
+    private javax.swing.JPanel Fondo1;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JTable dgvDatos;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblApellido;

@@ -20,6 +20,10 @@ public class InquilinoData
             System.out.println("Error de conexion1");
         }
     }
+
+    public InquilinoData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void Guardar(Inquilino inquilino)
     {
