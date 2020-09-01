@@ -7,17 +7,18 @@ package Modelo;
  * 
  */
 public class Inmueble {
-    private int idInmueble,
-            idPropietario,
-            idTipoInmueble, 
-            codigoZona,
-            alturaInmueble;
+    private int idInmueble;
+    private String idPropietario;
+    private int idTipoInmueble,
+                codigoZona,
+                alturaInmueble;
     private String direccion,
             disponible;
     private double superficie, 
             precioBase;
 
-    public Inmueble(int idPropietario, 
+    public Inmueble(int idInmueble,
+                    String idPropietario,
                     int idTipoInmueble, 
                     String direccion, 
                     int alturaInmueble, 
@@ -26,6 +27,7 @@ public class Inmueble {
                     int codigoZona, 
                     String disponible)
     {
+        this.idInmueble=idInmueble;
         this.idPropietario = idPropietario;
         this.idTipoInmueble = idTipoInmueble;
         this.direccion = direccion;
@@ -42,9 +44,9 @@ public class Inmueble {
 
     public void setIdInmueble(int idInmueble) {this.idInmueble = idInmueble;}
 
-    public int getIdPropietario() {return idPropietario;}
+    public String getIdPropietario() {return idPropietario;}
 
-    public void setIdPropietario(int idPropietario) {this.idPropietario = idPropietario;}
+    public void setIdPropietario(String idPropietario) {this.idPropietario = idPropietario;}
         
     public int getIdTipoInmueble() {return idTipoInmueble;}    
 

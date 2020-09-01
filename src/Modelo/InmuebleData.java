@@ -5,7 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -39,9 +41,10 @@ public class InmuebleData {
                 + "codigoZona,"
                 + "disponible) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+           // PreparedStatement ps= con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
-            ps.setInt(1, propietario.getCuitPropietario());
+            ps.setString(1, propietario.getCuitPropietario());
             ps.setInt(2, tipoInmueble.getIdTipo());
             ps.setString(3, inmueble.getDireccion());
             ps.setInt(4, inmueble.getAlturaInmueble());
@@ -52,7 +55,7 @@ public class InmuebleData {
             
             int count = ps.executeUpdate();//Nos retorna un entero que equivale a la cantidad de campos afectados
             if(count > 0){
-                System.out.println("Se guardo el imueble correctamente!!");
+                System.out.println("Se guardo el imueble "+inmueble.getIdInmueble()+" correctamente!!");
                 ps.close();//CERRAMOS EL STATEMENTS
                 return true;
             }else{
@@ -77,7 +80,7 @@ public class InmuebleData {
             while(rs.next()){//Muestra los campos obtenidos
                 
                 System.out.println("\nID INMUEBLRE: "+rs.getInt("idInmueble"));
-                System.out.println("ID PROPIETARIO: "+rs.getInt("idPropietario"));
+                System.out.println("ID PROPIETARIO: "+rs.getString("idPropietario"));
                 System.out.println("ID TIPO: "+rs.getInt("idTipoInmueble"));
                 System.out.println("DIRECCION: "+rs.getString("direccion"));
                 System.out.println("ALTURA INMUEBLE: "+rs.getInt("alturaInmueble"));
@@ -86,7 +89,7 @@ public class InmuebleData {
                 System.out.println("CODIGO DE ZONA:"+rs.getInt("codigoZona"));
                 System.out.println("DISPONIBLE: "+rs.getString("disponible")+"\n");
                 inmueble.setIdInmueble(rs.getInt("idInmueble"));
-                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdPropietario(rs.getString("idPropietario"));
                 inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
                 inmueble.setDireccion(rs.getString("direccion"));
                 inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
@@ -116,7 +119,7 @@ public class InmuebleData {
             while(rs.next()){//Muestra los campos obtenidos
                 inmueble = new Inmueble();
                 inmueble.setIdInmueble(rs.getInt("idInmueble"));
-                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdPropietario(rs.getString("idPropietario"));
                 inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
                 inmueble.setDireccion(rs.getString("direccion"));
                 inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
@@ -138,15 +141,16 @@ public class InmuebleData {
         Inmueble inmueble = null;
         ArrayList<Inmueble> inmuebles = new ArrayList<Inmueble>();
         try{
-            String sql = "SELECT * FROM inmueble WHERE"+nombre+"=?";
+            String sql = "SELECT * FROM inmueble WHERE "+nombre+" =?";
             PreparedStatement ps = con.prepareStatement(sql);
+            
             ps.setString(1, valor);
             ResultSet rs=ps.executeQuery();//ejecuta la busqueda
             
             while(rs.next()){//Muestra los campos obtenidos
                 inmueble = new Inmueble();
                 inmueble.setIdInmueble(rs.getInt("idInmueble"));
-                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdPropietario(rs.getString("idPropietario"));
                 inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
                 inmueble.setDireccion(rs.getString("direccion"));
                 inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
@@ -177,7 +181,7 @@ public class InmuebleData {
             while(rs.next()){//Muestra los campos obtenidos
                 inmueble = new Inmueble();
                 inmueble.setIdInmueble(rs.getInt("idInmueble"));
-                inmueble.setIdPropietario(rs.getInt("idPropietario"));
+                inmueble.setIdPropietario(rs.getString("idPropietario"));
                 inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
                 inmueble.setDireccion(rs.getString("direccion"));
                 inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
@@ -232,7 +236,7 @@ public class InmuebleData {
                 + "WHERE idInmueble=?";
             
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, propietario.getCuitPropietario());
+            ps.setString(1, propietario.getCuitPropietario());
             ps.setInt(2, tipoInmueble.getIdTipo());
             ps.setString(3, inmueble.getDireccion());
             ps.setInt(4, inmueble.getAlturaInmueble());
@@ -257,5 +261,51 @@ public class InmuebleData {
             System.out.println( "ERROR: no se pudo actualizar..."+ex.getMessage());
             return false;
         }
+    }
+    
+     public List<Inmueble> buscarInmuebleContrato(int idTipoInmueble, int codigoZona, double superficie, double precio){
+       
+        List<Inmueble> listaInmuebles = new ArrayList<>();
+         Inmueble inmueble = null;
+         
+        try{
+            String sql = "SELECT * FROM inmueble WHERE idTipoInmueble=? and codigoZona=? and superficie=? and precioBase=?;";
+           // String sql = "SELECT * FROM inmueble WHERE idTipoInmueble='"+idTipoInmueble+"' and codigoZona='"+codigoZona+"' and superficie>='"+superficie+"' and precioBase<='"+precio+"';";
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, idTipoInmueble);
+            ps.setInt(2, codigoZona);
+            ps.setDouble(3, superficie);
+            ps.setDouble(4, precio);
+            
+            
+            
+            ResultSet rs=ps.executeQuery();//ejecuta la busqueda
+            
+            while(rs.next()){//Muestra los campos obtenidos
+                
+                inmueble = new Inmueble();
+                
+                inmueble.setIdInmueble(rs.getInt("idInmueble"));
+                inmueble.setIdPropietario(rs.getString("idPropietario"));
+                inmueble.setIdTipoInmueble(rs.getInt("idTipoInmueble"));
+                inmueble.setDireccion(rs.getString("direccion"));
+                inmueble.setAlturaInmueble(rs.getInt("alturaInmueble"));
+                inmueble.setSuperficie(rs.getDouble("superficie"));
+                inmueble.setPrecioBase(rs.getDouble("precioBase"));
+                inmueble.setCodigoZona(rs.getInt("codigoZona"));
+                inmueble.setDisponible(rs.getString("disponible"));
+                
+                listaInmuebles.add(inmueble);
+            }
+            ps.close();//CERRAMOS EL STATEMENTS
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
+            
+        }
+        return listaInmuebles;
+        
     }
 }

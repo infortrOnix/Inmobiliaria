@@ -56,7 +56,7 @@ public class tipoInmuebleData {
             while(rs.next()){//Muestra los campos obtenidos
                 System.out.println("\nID INMUEBLRE: "+rs.getInt("idTipo"));
                 System.out.println("ID PROPIETARIO: "+rs.getString("descripcion"));
-                tipo.setIdTipo(rs.getInt("idTpo"));
+                tipo.setIdTipo(rs.getInt("idTipo"));
                 tipo.setDescripcion(rs.getString("descripcion"));
             }
             ps.close();//CERRAMOS EL STATEMENTS
@@ -68,6 +68,29 @@ public class tipoInmuebleData {
         }
         
         return true;
+    }
+    
+    public ArrayList<tipoInmueble> buscarTipoPor(String nombre, String valor){
+        tipoInmueble tipo = null;
+        ArrayList<tipoInmueble> tipos = new ArrayList<tipoInmueble>();
+        try{
+            String sql = "SELECT * FROM tipoInmueble WHERE "+nombre+" =?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, valor);
+            ResultSet rs=ps.executeQuery();//ejecuta la busqueda
+            while(rs.next()){//Muestra los campos obtenidos
+                tipo = new tipoInmueble();
+                tipo.setIdTipo(rs.getInt("idTipo"));
+                tipo.setDescripcion(rs.getString("descripcion"));
+                tipos.add(tipo);
+            }
+            ps.close();//CERRAMOS EL STATEMENTS
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            System.out.println( "ERROR: no se pudo buscar..."+ex.getMessage());
+        }
+        return tipos;
     }
     
     public ArrayList<tipoInmueble> buscarTodosLosTipos(){
@@ -120,10 +143,11 @@ public class tipoInmuebleData {
     
     public boolean actualizarTipo(tipoInmueble tipo){
         try{
-            String sql = "UPDATE tipoInmueble SET descripcion=?";
+            String sql = "UPDATE tipoInmueble SET descripcion=? WHERE idTipo=?";
             
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, tipo.getDescripcion());
+            ps.setInt(2, tipo.getIdTipo());
             
             int count = ps.executeUpdate();//Nos retorna un entero que equivale a la cantidad de campos afectados
             if(count > 0){

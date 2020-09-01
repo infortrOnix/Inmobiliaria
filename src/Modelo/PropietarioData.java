@@ -18,8 +18,7 @@ import javax.swing.JOptionPane;
  * @author Norberto
  */
 public class PropietarioData {
-   
-    
+  
    //crea conexion 
     Connection con = null;
     
@@ -31,18 +30,17 @@ public class PropietarioData {
     }
 
     
-    
     //Cargar
     public void guardarPropietario(Propietario propietario){
         String sql="INSERT INTO propietario(cuitPropietario,apellido,nombre,domicilio, telefono, email) VALUES(?,?,?,?,?,?);";
         
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, propietario.getCuitPropietario());
+            ps.setString(1, propietario.getCuitPropietario());
             ps.setString(2, propietario.getApellidoPropietario());
             ps.setString(3,propietario.getNombrePropietario());
             ps.setString(4,propietario.getDomicilioPropietario());
-            ps.setInt(5,propietario.getTelefono());
+            ps.setString(5,propietario.getTelefono());
             ps.setString(6,propietario.getEmail());
             
             ps.executeUpdate();
@@ -65,16 +63,18 @@ public class PropietarioData {
     
         public void actualizarPropietario(Propietario propietario){
         String sql="UPDATE propietario SET apellido=?,nombre=?,domicilio=?,telefono=?,email=? WHERE cuitPropietario=?;";
+         
         
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             
-            ps.setInt(6, propietario.getCuitPropietario());
+            
             ps.setString(1, propietario.getApellidoPropietario());
             ps.setString(2,propietario.getNombrePropietario());
             ps.setString(3,propietario.getDomicilioPropietario());
-            ps.setInt(4,propietario.getTelefono());
+            ps.setString(4,propietario.getTelefono());
             ps.setString(5,propietario.getEmail());
+            ps.setString(6, propietario.getCuitPropietario());
             
             
             ps.executeUpdate();
@@ -94,13 +94,13 @@ public class PropietarioData {
         //FIN MODIFICAR
         
         // Borrar Propietario
-        public void borrarPropietario(int idPropietario){
+        public void borrarPropietario(String idPropietario){
             
             String sql="DELETE FROM propietario WHERE cuitPropietario=?";
            
             try{
                 PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-                ps.setInt(1, idPropietario);
+                ps.setString(1, idPropietario);
             
                 ps.executeUpdate();
             
@@ -121,7 +121,7 @@ public class PropietarioData {
         
        // BUSCAR Propietario
         
-      public Propietario buscarPropietario(int idPropietario){
+      public Propietario buscarPropietario(String idPropietario){
           
           Propietario propietario = null;
         try {
@@ -129,18 +129,18 @@ public class PropietarioData {
            String sql = "SELECT * FROM propietario  WHERE cuitPropietario=?;";
             
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, idPropietario);
+            ps.setString(1, idPropietario);
             ResultSet resultSet = ps.executeQuery();//no modifica la BD solo saca informacion
              
             
             while(resultSet.next()){//el while recorre toda la BD
                 
                 propietario = new Propietario();
-                propietario.setCuitPropietario(resultSet.getInt("cuitPropietario"));
+                propietario.setCuitPropietario(resultSet.getString("cuitPropietario"));
                 propietario.setApellidoPropietario(resultSet.getString("apellido"));
                 propietario.setNombrePropietario(resultSet.getString("nombre"));
                 propietario.setDomicilioPropietario(resultSet.getString("domicilio"));
-                propietario.setTelefono(resultSet.getInt("telefono"));
+                propietario.setTelefono(resultSet.getString("telefono"));
                 propietario.setEmail(resultSet.getString("email"));
                 
             }
@@ -175,14 +175,12 @@ public class PropietarioData {
             while(resultSet.next()){//el while recorre toda la BD
                 propietario=new Propietario();
                 
-                propietario.setCuitPropietario(resultSet.getInt("cuitPropietario"));
+                propietario.setCuitPropietario(resultSet.getString("cuitPropietario"));
                 propietario.setApellidoPropietario(resultSet.getString("apellido"));
                 propietario.setNombrePropietario(resultSet.getString("nombre"));
                 propietario.setDomicilioPropietario(resultSet.getString("domicilio"));
-                propietario.setTelefono(resultSet.getInt("telefono"));
+                propietario.setTelefono(resultSet.getString("telefono"));
                 propietario.setEmail(resultSet.getString("email"));
-                
-                
                 
                 listaPropietario.add(propietario);
                 

@@ -5,6 +5,17 @@
  */
 package Vista;
 
+
+import Modelo.Conexion;
+import Modelo.Propietario;
+import Modelo.PropietarioData;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+
+
 /**
  *
  * @author Merliques
@@ -14,8 +25,68 @@ public class PropietarioVista extends javax.swing.JInternalFrame {
     /**
      * Creates new form PropietarioVista
      */
+    private Conexion conexion;
+    private Propietario propietario;
+    private PropietarioData propietarioData;
+    
+    
+        
     public PropietarioVista() {
         initComponents();
+        conexion=new Conexion();
+        propietarioData=new PropietarioData(conexion);
+        
+        this.setSize(840, 449);
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) 
+      this.getUI()).setNorthPane(null);
+        
+        jtPropietario.getTableHeader().setFont(new Font("Courier New",Font.BOLD,12));
+        jtPropietario.getTableHeader().setOpaque(false);
+        jtPropietario.getTableHeader().setBackground(new Color(42, 62, 110));
+        jtPropietario.getTableHeader().setForeground(new Color(255, 255, 255));
+       
+       
+        
+        //********** Array to JTable****
+        
+        DefaultTableModel modeloTabla=new DefaultTableModel();
+        
+        modeloTabla.addColumn("CUIT");
+        modeloTabla.addColumn("Apellido");
+        modeloTabla.addColumn("Nombres");
+        modeloTabla.addColumn("Domicilio");
+        modeloTabla.addColumn("Telefono");
+        modeloTabla.addColumn("E-Mail");
+        
+        //creamos el array
+        String[] datoPropietario=new String[6];
+        
+        for(int i=0;i<propietarioData.listarPropietario().size();i++){
+          
+           datoPropietario[0]=(propietarioData.listarPropietario().get(i).getCuitPropietario());
+           datoPropietario[1]=(propietarioData.listarPropietario().get(i).getApellidoPropietario());
+           datoPropietario[2]=(propietarioData.listarPropietario().get(i).getNombrePropietario());
+           datoPropietario[3]=(propietarioData.listarPropietario().get(i).getDomicilioPropietario());
+           datoPropietario[4]=(propietarioData.listarPropietario().get(i).getTelefono());
+           datoPropietario[5]=(propietarioData.listarPropietario().get(i).getEmail());
+           
+            modeloTabla.addRow(datoPropietario);
+        }
+        
+        jtPropietario.setModel(modeloTabla);
+        
+        //********** Array to JTable****
+        
+        
+        //*iconos botones
+        jlbtnGuardar.setEnabled(false);
+        jlbtnActualizar.setEnabled(false);
+        jlbtnBorrar.setEnabled(false);
+        jlbtnNuevo.setEnabled(true);
+        jlbtnBuscar.setEnabled(true);
+        jlbtnCancelar.setEnabled(false);
+        
+        
     }
 
     /**
@@ -27,39 +98,166 @@ public class PropietarioVista extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtPropietario = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jlbtnNuevo = new javax.swing.JLabel();
+        jlbtnGuardar = new javax.swing.JLabel();
+        jlbtnCancelar = new javax.swing.JLabel();
+        jlbtnActualizar = new javax.swing.JLabel();
+        jlbtnBorrar = new javax.swing.JLabel();
+        jlbtnBuscar = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jtbCuit = new javax.swing.JTextField();
+        jtbApellido = new javax.swing.JTextField();
+        jtbNombre = new javax.swing.JTextField();
+        jtbDomicilio = new javax.swing.JTextField();
+        jtbTelefono = new javax.swing.JTextField();
+        jtbCorreo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jtbCuil = new javax.swing.JTextField();
-        jtbApellido = new javax.swing.JTextField();
-        jtbNombre = new javax.swing.JTextField();
-        jtbDomicilio = new javax.swing.JTextField();
-        jtbTelefono = new javax.swing.JTextField();
-        jtbCorreo = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jbtnNuevo = new javax.swing.JButton();
-        jbtnGuardar = new javax.swing.JButton();
-        jbtnBuscar = new javax.swing.JButton();
-        jbtnCancelar = new javax.swing.JButton();
-        jbtBorrar = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jToolBar1 = new javax.swing.JToolBar();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
 
-        setClosable(true);
+        jFormattedTextField1.setText("jFormattedTextField1");
 
-        jLabel1.setText("CUIL Propietario");
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jtPropietario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jtPropietario.setEnabled(false);
+        jScrollPane1.setViewportView(jtPropietario);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 840, 200));
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlbtnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_add_file_32px.png"))); // NOI18N
+        jlbtnNuevo.setToolTipText("Nuevo");
+        jlbtnNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnNuevoMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 11, 54, 43));
+
+        jlbtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_save_32px.png"))); // NOI18N
+        jlbtnGuardar.setToolTipText("Guardar");
+        jlbtnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnGuardarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 11, 48, 43));
+
+        jlbtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_undo_32px.png"))); // NOI18N
+        jlbtnCancelar.setToolTipText("Cancelar");
+        jlbtnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnCancelarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 11, 47, 43));
+
+        jlbtnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_refresh_32px.png"))); // NOI18N
+        jlbtnActualizar.setToolTipText("Actualizar");
+        jlbtnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnActualizarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 11, 47, 43));
+
+        jlbtnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_trash_can_32px.png"))); // NOI18N
+        jlbtnBorrar.setToolTipText("Borrar");
+        jlbtnBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnBorrarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 11, 70, 43));
+
+        jlbtnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_search_property_32px.png"))); // NOI18N
+        jlbtnBuscar.setToolTipText("Buscar");
+        jlbtnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnBuscarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 11, 53, 43));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_close_window_32px_1.png"))); // NOI18N
+        jLabel7.setToolTipText("Cerrar");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel7MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, 30, 43));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 838, 70));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jtbCuit.setEditable(false);
+        jtbCuit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtbCuit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtbCuitKeyTyped(evt);
+            }
+        });
+
+        jtbApellido.setEditable(false);
+        jtbApellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtbApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtbApellidoKeyTyped(evt);
+            }
+        });
+
+        jtbNombre.setEditable(false);
+        jtbNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtbNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtbNombreKeyTyped(evt);
+            }
+        });
+
+        jtbDomicilio.setEditable(false);
+        jtbDomicilio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jtbTelefono.setEditable(false);
+        jtbTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtbTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtbTelefonoActionPerformed(evt);
+            }
+        });
+        jtbTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtbTelefonoKeyTyped(evt);
+            }
+        });
+
+        jtbCorreo.setEditable(false);
+        jtbCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setText("CUIT Propietario");
 
         jLabel2.setText("Apellido");
 
@@ -71,209 +269,66 @@ public class PropietarioVista extends javax.swing.JInternalFrame {
 
         jLabel6.setText("e-mail");
 
-        jtbTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbTelefonoActionPerformed(evt);
-            }
-        });
-
-        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jbtnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedor.png"))); // NOI18N
-        jbtnNuevo.setText("Nuevo Propietario");
-        jbtnNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnNuevoActionPerformed(evt);
-            }
-        });
-
-        jbtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
-        jbtnGuardar.setText("Guardar Propietario");
-
-        jbtnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/investigacion.png"))); // NOI18N
-        jbtnBuscar.setText("Buscar Propietario");
-
-        jbtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/espalda.png"))); // NOI18N
-        jbtnCancelar.setText("Cancelar");
-
-        jbtBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/basura.png"))); // NOI18N
-        jbtBorrar.setText("Borrar Propietario");
-
-        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jToolBar1.setRollover(true);
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/newdoc.png"))); // NOI18N
-        jButton6.setText("Nuevo");
-        jButton6.setToolTipText("Nuevo Propietario");
-        jButton6.setFocusable(false);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setMaximumSize(new java.awt.Dimension(80, 80));
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton6);
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/savedoc.png"))); // NOI18N
-        jButton7.setText("Guardar");
-        jButton7.setToolTipText("Guardar Propietario");
-        jButton7.setFocusable(false);
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setMaximumSize(new java.awt.Dimension(80, 80));
-        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton7);
-
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/finddoc.png"))); // NOI18N
-        jButton8.setText("Buscar");
-        jButton8.setToolTipText("Buscar Propietario");
-        jButton8.setFocusable(false);
-        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton8.setMaximumSize(new java.awt.Dimension(80, 80));
-        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton8);
-
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/canceldoc.png"))); // NOI18N
-        jButton9.setText("Cancelar");
-        jButton9.setToolTipText("Cancelar Cambios");
-        jButton9.setFocusable(false);
-        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton9.setMaximumSize(new java.awt.Dimension(80, 80));
-        jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton9);
-
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/deletedoc.png"))); // NOI18N
-        jButton10.setText("Borrar");
-        jButton10.setToolTipText("Borrar Propietario");
-        jButton10.setFocusable(false);
-        jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton10.setMaximumSize(new java.awt.Dimension(80, 80));
-        jButton10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton10);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtbCuil, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(33, 33, 33)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel2)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addComponent(jLabel4)))
-                                        .addGap(21, 21, 21)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jtbTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel6)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jtbCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jtbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jtbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jtbDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(50, 50, 50)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jbtnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jbtnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jbtnNuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jbtnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jbtBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(25, 25, 25))
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(23, 23, 23))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jtbCuil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtbCuit, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jtbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jtbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtbDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtbDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jtbCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(jtbTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jbtnNuevo)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbtnGuardar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbtnBuscar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbtnCancelar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbtBorrar)
-                                .addGap(8, 8, 8))
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(106, 106, 106)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jtbTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtbCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
+                .addGap(77, 77, 77))
         );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtbCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtbDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtbCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 68, -1, 220));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,42 +337,303 @@ public class PropietarioVista extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtbTelefonoActionPerformed
 
-    private void jbtnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnNuevoActionPerformed
+    private void jtbCuitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtbCuitKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbtnNuevoActionPerformed
+        
+        char TestCaracter=evt.getKeyChar();
+        if(!(Character.isDigit(TestCaracter)))
+            evt.consume();
+        
+        if (jtbCuit.getText().length() >= 11) 
+        evt.consume();
+        
+        
+    }//GEN-LAST:event_jtbCuitKeyTyped
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void jtbTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtbTelefonoKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+         char TestCaracter=evt.getKeyChar();
+        if(!(Character.isDigit(TestCaracter)))
+            evt.consume();
+        if (jtbTelefono.getText().length() >= 16) 
+        evt.consume();
+    }//GEN-LAST:event_jtbTelefonoKeyTyped
 
+    private void jtbApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtbApellidoKeyTyped
+        // TODO add your handling code here:
+         char TestCaracter=evt.getKeyChar();
+        if(!(Character.isAlphabetic(TestCaracter))&& !(Character.isWhitespace(TestCaracter)))
+            evt.consume();
+    }//GEN-LAST:event_jtbApellidoKeyTyped
+
+    private void jtbNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtbNombreKeyTyped
+        // TODO add your handling code here:
+         char TestCaracter=evt.getKeyChar();
+        if(!(Character.isAlphabetic(TestCaracter))&& !(Character.isWhitespace(TestCaracter)))
+            evt.consume();
+        
+    }//GEN-LAST:event_jtbNombreKeyTyped
+
+    private void jlbtnNuevoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnNuevoMousePressed
+        // TODO add your handling code here:
+        jtbCuit.setText("");
+        jtbApellido.setText("");
+        jtbNombre.setText("");
+        jtbDomicilio.setText("");
+        jtbTelefono.setText("");
+        jtbCorreo.setText("");
+        
+        jtbCuit.setEditable(true);
+        jtbApellido.setEditable(true);
+        jtbNombre.setEditable(true);
+        jtbDomicilio.setEditable(true);
+        jtbTelefono.setEditable(true);
+        jtbCorreo.setEditable(true);
+        
+        jtbCuit.requestFocus();
+        
+        jlbtnGuardar.setEnabled(true);
+        jlbtnActualizar.setEnabled(false);
+        jlbtnBorrar.setEnabled(false);
+        jlbtnNuevo.setEnabled(false);
+        jlbtnBuscar.setEnabled(false);
+        jlbtnCancelar.setEnabled(true);
+        
+        
+        
+    }//GEN-LAST:event_jlbtnNuevoMousePressed
+
+    private void jlbtnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnGuardarMousePressed
+        // TODO add your handling code here:
+        
+        propietario=new Propietario();
+     
+      
+      propietario.setCuitPropietario((jtbCuit.getText()));
+      propietario.setApellidoPropietario(jtbApellido.getText());
+      propietario.setNombrePropietario(jtbNombre.getText());
+      propietario.setDomicilioPropietario(jtbDomicilio.getText());
+      propietario.setTelefono((jtbTelefono.getText()));
+      propietario.setEmail(jtbCorreo.getText());
+      
+      
+      if((JOptionPane.showConfirmDialog(null, "Esta seguro que desea Guaradar el Propietario : "+jtbCuit.getText()+" ?", "Confirmar Guardado",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE))==0)
+        {
+            propietarioData.guardarPropietario(propietario);//llamamos al metodo guardar de la clase Data
+        }
+                 
+      
+        jtbCuit.setEditable(false);
+        jtbApellido.setEditable(false);
+        jtbNombre.setEditable(false);
+        jtbDomicilio.setEditable(false);
+        jtbTelefono.setEditable(false);
+        jtbCorreo.setEditable(false);
+      
+        jlbtnNuevo.setEnabled(true);
+        jlbtnGuardar.setEnabled(false);
+        jlbtnBuscar.setEnabled(true);
+      
+        listarPropietarios();
+        
+        
+    }//GEN-LAST:event_jlbtnGuardarMousePressed
+
+    private void jlbtnCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnCancelarMousePressed
+        // TODO add your handling code here:
+        
+        jtbCuit.setText("");
+        jtbApellido.setText("");
+        jtbNombre.setText("");
+        jtbDomicilio.setText("");
+        jtbTelefono.setText("");
+        jtbCorreo.setText("");
+        
+        jtbCuit.setEditable(false);
+        jtbApellido.setEditable(false);
+        jtbNombre.setEditable(false);
+        jtbDomicilio.setEditable(false);
+        jtbTelefono.setEditable(false);
+        jtbCorreo.setEditable(false);
+        
+                
+        jtbCuit.requestFocus();
+        
+        jlbtnGuardar.setEnabled(false);
+        jlbtnActualizar.setEnabled(false);
+        jlbtnBorrar.setEnabled(false);
+        jlbtnNuevo.setEnabled(true);
+        jlbtnBuscar.setEnabled(true);
+        jlbtnCancelar.setEnabled(false);
+        
+    }//GEN-LAST:event_jlbtnCancelarMousePressed
+
+    private void jlbtnActualizarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnActualizarMousePressed
+        // TODO add your handling code here:
+        
+        if(jtbCuit.getText()!=null){
+            
+              propietario=new Propietario();
+            
+               
+                propietario.setCuitPropietario((jtbCuit.getText()));
+                propietario.setApellidoPropietario(jtbApellido.getText());
+                propietario.setNombrePropietario(jtbNombre.getText());
+                propietario.setDomicilioPropietario(jtbDomicilio.getText());
+                propietario.setTelefono((jtbTelefono.getText()));
+                propietario.setEmail(jtbCorreo.getText());
+                        
+                propietarioData.actualizarPropietario(propietario);
+                
+                    jtbCuit.setEditable(false);
+                    jtbApellido.setEditable(false);
+                    jtbNombre.setEditable(false);
+                    jtbDomicilio.setEditable(false);
+                    jtbTelefono.setEditable(false);
+                    jtbCorreo.setEditable(false);
+            
+        }
+                    jlbtnActualizar.setEnabled(false);
+                    jlbtnBorrar.setEnabled(true);
+                    jlbtnNuevo.setEnabled(true);
+                    jlbtnCancelar.setEnabled(false);
+                    
+            listarPropietarios();
+        
+    }//GEN-LAST:event_jlbtnActualizarMousePressed
+
+    private void jlbtnBorrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnBorrarMousePressed
+        // TODO add your handling code here:
+        
+          
+        String id=(jtbCuit.getText());
+        
+        
+        
+        if((JOptionPane.showConfirmDialog(null, "Realmente desea Eliminar el Propietario "+id+" ?", "Confirmar Borrado",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE))==0)
+        {
+           propietarioData.borrarPropietario(id); 
+        }
+                    jtbCuit.setEditable(false);
+                    jtbApellido.setEditable(false);
+                    jtbNombre.setEditable(false);
+                    jtbDomicilio.setEditable(false);
+                    jtbTelefono.setEditable(false);
+                    jtbCorreo.setEditable(false);
+                    
+                    jtbCuit.setText("");
+                    jtbApellido.setText("");
+                    jtbNombre.setText("");
+                    jtbDomicilio.setText("");
+                    jtbTelefono.setText("");
+                    jtbCorreo.setText("");
+                    
+        jlbtnBorrar.setEnabled(false);
+        
+        listarPropietarios();
+    }//GEN-LAST:event_jlbtnBorrarMousePressed
+
+    private void jlbtnBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnBuscarMousePressed
+        // TODO add your handling code here:
+        
+         String idUser=JOptionPane.showInputDialog ( "Introduzca un CUIT :" );
+            
+            jtbCuit.setText(idUser);
+        
+       // int id=Integer.parseInt(jtbCuit.getText());
+         
+            propietario = propietarioData.buscarPropietario(idUser);
+                
+                if(propietario!=null){
+                    
+                    jtbCuit.setText((propietario.getCuitPropietario()));
+                    jtbApellido.setText(propietario.getApellidoPropietario());
+                    jtbNombre.setText(propietario.getNombrePropietario());
+                    jtbDomicilio.setText(propietario.getDomicilioPropietario());
+                    jtbTelefono.setText((propietario.getTelefono()));
+                    jtbCorreo.setText(propietario.getEmail());
+                    
+                    jtbCuit.setEditable(true);
+                    jtbApellido.setEditable(true);
+                    jtbNombre.setEditable(true);
+                    jtbDomicilio.setEditable(true);
+                    jtbTelefono.setEditable(true);
+                    jtbCorreo.setEditable(true);
+        
+                    
+                    jlbtnBorrar.setEnabled(true);
+                    jlbtnActualizar.setEnabled(true);
+                    jlbtnNuevo.setEnabled(false);
+                    jlbtnCancelar.setEnabled(true);
+                }
+    }//GEN-LAST:event_jlbtnBuscarMousePressed
+
+    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
+        // TODO add your handling code here:
+        MenuPrincipalN.jlblIcon.setVisible(true);
+        MenuPrincipalN.jlblProp.setVisible(false);
+        MenuPrincipalN.jlblInfo.setText("INFORMACION");
+        this.dispose();
+    }//GEN-LAST:event_jLabel7MousePressed
+
+    public void listarPropietarios(){
+        
+        //********** Array to JTable****
+        
+        DefaultTableModel modeloTabla=new DefaultTableModel();
+        
+        modeloTabla.addColumn("CUIT");
+        modeloTabla.addColumn("Apellido");
+        modeloTabla.addColumn("Nombres");
+        modeloTabla.addColumn("Domicilio");
+        modeloTabla.addColumn("Telefono");
+        modeloTabla.addColumn("E-Mail");
+        
+        //creamos el array
+        String[] datoPropietario=new String[6];
+        
+        for(int i=0;i<propietarioData.listarPropietario().size();i++){
+          
+           datoPropietario[0]=(propietarioData.listarPropietario().get(i).getCuitPropietario());
+           datoPropietario[1]=(propietarioData.listarPropietario().get(i).getApellidoPropietario());
+           datoPropietario[2]=(propietarioData.listarPropietario().get(i).getNombrePropietario());
+           datoPropietario[3]=(propietarioData.listarPropietario().get(i).getDomicilioPropietario());
+           datoPropietario[4]=(propietarioData.listarPropietario().get(i).getTelefono());
+           datoPropietario[5]=(propietarioData.listarPropietario().get(i).getEmail());
+           
+            modeloTabla.addRow(datoPropietario);
+        }
+        
+        jtPropietario.setModel(modeloTabla);
+        
+        //********** Array to JTable****
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JButton jbtBorrar;
-    private javax.swing.JButton jbtnBuscar;
-    private javax.swing.JButton jbtnCancelar;
-    private javax.swing.JButton jbtnGuardar;
-    private javax.swing.JButton jbtnNuevo;
+    private javax.swing.JLabel jlbtnActualizar;
+    private javax.swing.JLabel jlbtnBorrar;
+    private javax.swing.JLabel jlbtnBuscar;
+    private javax.swing.JLabel jlbtnCancelar;
+    private javax.swing.JLabel jlbtnGuardar;
+    private javax.swing.JLabel jlbtnNuevo;
+    private javax.swing.JTable jtPropietario;
     private javax.swing.JTextField jtbApellido;
     private javax.swing.JTextField jtbCorreo;
-    private javax.swing.JTextField jtbCuil;
+    private javax.swing.JTextField jtbCuit;
     private javax.swing.JTextField jtbDomicilio;
     private javax.swing.JTextField jtbNombre;
     private javax.swing.JTextField jtbTelefono;

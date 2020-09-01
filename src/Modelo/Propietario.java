@@ -7,17 +7,17 @@ package Modelo;
  */
 public class Propietario {
     
-    private int cuitPropietario;
+    private String cuitPropietario;
     private String apellidoPropietario;
     private String nombrePropietario;
     private String domicilioPropietario;
-    private int telefono;
+    private String telefono;
     private String email;
     public Propietario(){
         
     }
 
-    public Propietario(int cuilPropietario, String apellidoPropietario, String nombrePropietario, String domicilioPorpietario, int telefono, String email) {
+    public Propietario(String cuilPropietario, String apellidoPropietario, String nombrePropietario, String domicilioPorpietario, String telefono, String email) {
         this.cuitPropietario = cuilPropietario;
         this.apellidoPropietario = apellidoPropietario;
         this.nombrePropietario = nombrePropietario;
@@ -25,12 +25,19 @@ public class Propietario {
         this.telefono = telefono;
         this.email = email;
     }
+    
+    public Propietario(String cuilPropietario, String apellidoPropietario, String nombrePropietario) {
+        this.cuitPropietario = cuilPropietario;
+        this.apellidoPropietario = apellidoPropietario;
+        this.nombrePropietario = nombrePropietario;
+        
+    }
 
-    public int getCuitPropietario() {
+    public String getCuitPropietario() {
         return cuitPropietario;
     }
 
-    public void setCuitPropietario(int cuilPropietario) {
+    public void setCuitPropietario(String cuilPropietario) {
         this.cuitPropietario = cuilPropietario;
     }
 
@@ -58,11 +65,11 @@ public class Propietario {
         this.domicilioPropietario = domicilioPorpietario;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -73,10 +80,6 @@ public class Propietario {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
-    
-    
     
     
 }

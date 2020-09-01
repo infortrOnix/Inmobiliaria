@@ -5,9 +5,10 @@
  */
 package Vista;
 
-import Modelo.Inquilino;
-import Modelo.InquilinoData;
-import java.util.List;
+import Modelo.*;
+import java.util.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,17 +16,42 @@ import java.util.List;
  */
 public class InquilinoVista extends javax.swing.JInternalFrame {
 
+    
+    private Inquilino inquilino;
+    private InquilinoData inquilinoData;
+    
+    
     /**
      * Creates new form InquilinoVista
      */
     public InquilinoVista() {
         initComponents();
         
-        setTitle("Vista Inquilino");
-        setSize(800,600);
+        this.setSize(840, 449);
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) 
+        this.getUI()).setNorthPane(null);
         
+        
+        //*iconos botones
+        jlbtnGuardar.setEnabled(false);
+        jlbtnActualizar.setEnabled(false);
+        jlbtnBorrar.setEnabled(false);
+        jlbtnNuevo.setEnabled(true);
+        jlbtnBuscar.setEnabled(true);
+        jlbtnCancelar.setEnabled(false);
+        
+        
+        
+        Tabla();
+        MostrarTabla();    
     }
-
+       
+    
+    Conexion con=new Conexion();
+    DefaultTableModel modelo = new DefaultTableModel();
+    List<Inquilino> lista = new ArrayList<Inquilino>();
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,364 +61,245 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlFondo = new javax.swing.JPanel();
-        lblApellido = new javax.swing.JLabel();
-        lblLugarGarante = new javax.swing.JLabel();
-        lblNombreGarante = new javax.swing.JLabel();
-        lblDniGarante = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        lblCuilInquilino = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        tbApellido = new javax.swing.JTextField();
-        tbLugarTrabajo = new javax.swing.JTextField();
-        tbNombreGarante = new javax.swing.JTextField();
-        tbDniGarante = new javax.swing.JTextField();
-        tbNombre = new javax.swing.JTextField();
-        tbCuilInquilino = new javax.swing.JTextField();
-        pnlFondoBotones = new javax.swing.JPanel();
-        btnEliminar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvDatos = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tdatos = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jlbtnNuevo = new javax.swing.JLabel();
+        jlbtnGuardar = new javax.swing.JLabel();
+        jlbtnCancelar = new javax.swing.JLabel();
+        jlbtnActualizar = new javax.swing.JLabel();
+        jlbtnBorrar = new javax.swing.JLabel();
+        jlbtnBuscar = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblCuilInquilino = new javax.swing.JLabel();
+        tbCuilInquilino = new javax.swing.JTextField();
+        lblNombre = new javax.swing.JLabel();
+        tbNombre = new javax.swing.JTextField();
+        lblApellido = new javax.swing.JLabel();
+        tbApellido = new javax.swing.JTextField();
+        lblLugarGarante = new javax.swing.JLabel();
+        tbLugarTrabajo = new javax.swing.JTextField();
+        lblNombreGarante = new javax.swing.JLabel();
+        tbNombreGarante = new javax.swing.JTextField();
+        lblDniGarante = new javax.swing.JLabel();
+        tbDniGarante = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(102, 102, 102));
-        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        dgvDatos.setBackground(new java.awt.Color(0, 0, 51));
+        dgvDatos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        dgvDatos.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(dgvDatos);
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnlFondo.setBackground(new java.awt.Color(51, 51, 51));
+        Tdatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(Tdatos);
 
-        lblApellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
-        lblApellido.setText("Apellido");
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 838, 180));
 
-        lblLugarGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLugarGarante.setForeground(new java.awt.Color(255, 255, 255));
-        lblLugarGarante.setText("Lugar de Trabajo");
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombreGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblNombreGarante.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombreGarante.setText("Nombre Del Garante");
+        jlbtnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_add_file_32px.png"))); // NOI18N
+        jlbtnNuevo.setToolTipText("Nuevo");
+        jlbtnNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnNuevoMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 11, 54, 43));
 
-        lblDniGarante.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDniGarante.setForeground(new java.awt.Color(255, 255, 255));
-        lblDniGarante.setText("Dni Del Garante");
+        jlbtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_save_32px.png"))); // NOI18N
+        jlbtnGuardar.setToolTipText("Guardar");
+        jlbtnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnGuardarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 11, 48, 43));
 
-        lblNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombre.setText("Nombre");
+        jlbtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_undo_32px.png"))); // NOI18N
+        jlbtnCancelar.setToolTipText("Cancelar");
+        jlbtnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnCancelarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 11, 47, 43));
+
+        jlbtnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_refresh_32px.png"))); // NOI18N
+        jlbtnActualizar.setToolTipText("Actualizar");
+        jlbtnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnActualizarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 11, 47, 43));
+
+        jlbtnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_trash_can_32px.png"))); // NOI18N
+        jlbtnBorrar.setToolTipText("Borrar");
+        jlbtnBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnBorrarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 11, 70, 43));
+
+        jlbtnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_search_property_32px.png"))); // NOI18N
+        jlbtnBuscar.setToolTipText("Buscar");
+        jlbtnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbtnBuscarMousePressed(evt);
+            }
+        });
+        jPanel1.add(jlbtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 11, 53, 43));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_close_window_32px_1.png"))); // NOI18N
+        jLabel7.setToolTipText("Cerrar");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel7MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, 30, 43));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 70));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblCuilInquilino.setBackground(new java.awt.Color(255, 255, 255));
-        lblCuilInquilino.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblCuilInquilino.setForeground(new java.awt.Color(255, 255, 255));
         lblCuilInquilino.setText("Cuil Inquilino");
+        jPanel2.add(lblCuilInquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Datos de Inquilino");
-
-        tbApellido.setBackground(new java.awt.Color(0, 0, 51));
-        tbApellido.setForeground(new java.awt.Color(255, 255, 255));
-        tbApellido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tbApellido.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tbApellidoKeyTyped(evt);
-            }
-        });
-
-        tbLugarTrabajo.setBackground(new java.awt.Color(0, 0, 51));
-        tbLugarTrabajo.setForeground(new java.awt.Color(255, 255, 255));
-        tbLugarTrabajo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tbLugarTrabajo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tbLugarTrabajoKeyTyped(evt);
-            }
-        });
-
-        tbNombreGarante.setBackground(new java.awt.Color(0, 0, 51));
-        tbNombreGarante.setForeground(new java.awt.Color(255, 255, 255));
-        tbNombreGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tbNombreGarante.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tbNombreGaranteKeyTyped(evt);
-            }
-        });
-
-        tbDniGarante.setBackground(new java.awt.Color(0, 0, 51));
-        tbDniGarante.setForeground(new java.awt.Color(255, 255, 255));
-        tbDniGarante.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tbDniGarante.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tbDniGaranteKeyTyped(evt);
-            }
-        });
-
-        tbNombre.setBackground(new java.awt.Color(0, 0, 51));
-        tbNombre.setForeground(new java.awt.Color(255, 255, 255));
-        tbNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tbNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tbNombreKeyTyped(evt);
-            }
-        });
-
-        tbCuilInquilino.setBackground(new java.awt.Color(0, 0, 51));
-        tbCuilInquilino.setForeground(new java.awt.Color(255, 255, 255));
-        tbCuilInquilino.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tbCuilInquilino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tbCuilInquilino.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tbCuilInquilinoKeyTyped(evt);
             }
         });
+        jPanel2.add(tbCuilInquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 140, 21));
 
-        javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
-        pnlFondo.setLayout(pnlFondoLayout);
-        pnlFondoLayout.setHorizontalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombre)
-                    .addComponent(lblNombreGarante)
-                    .addComponent(lblLugarGarante)
-                    .addComponent(lblApellido)
-                    .addComponent(lblDniGarante)
-                    .addComponent(lblCuilInquilino))
-                .addGap(45, 45, 45)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(tbNombreGarante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                    .addComponent(tbLugarTrabajo, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tbApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tbNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tbDniGarante)
-                    .addComponent(tbCuilInquilino))
-                .addGap(0, 36, Short.MAX_VALUE))
-        );
-        pnlFondoLayout.setVerticalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCuilInquilino)
-                    .addComponent(tbCuilInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre))
-                .addGap(18, 18, 18)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblApellido))
-                .addGap(18, 18, 18)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbLugarTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLugarGarante))
-                .addGap(18, 18, 18)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbNombreGarante, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombreGarante))
-                .addGap(18, 18, 18)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbDniGarante, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDniGarante))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        lblNombre.setText("Nombre");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
 
-        pnlFondoBotones.setBackground(new java.awt.Color(51, 51, 51));
-
-        btnEliminar.setBackground(new java.awt.Color(102, 102, 102));
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/basura.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+        tbNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbNombreKeyTyped(evt);
             }
         });
+        jPanel2.add(tbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 231, 21));
 
-        btnGuardar.setBackground(new java.awt.Color(102, 102, 102));
-        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+        lblApellido.setText("Apellido");
+        jPanel2.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
+        tbApellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbApellidoKeyTyped(evt);
             }
         });
+        jPanel2.add(tbApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 245, 20));
 
-        btnBuscar.setBackground(new java.awt.Color(102, 102, 102));
-        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/investigacion.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+        lblLugarGarante.setText("Lugar de Trabajo");
+        jPanel2.add(lblLugarGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+
+        tbLugarTrabajo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbLugarTrabajo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbLugarTrabajoKeyTyped(evt);
             }
         });
+        jPanel2.add(tbLugarTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 180, 20));
 
-        btnActualizar.setBackground(new java.awt.Color(102, 102, 102));
-        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/refrescar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
+        lblNombreGarante.setText("Nombre Del Garante");
+        jPanel2.add(lblNombreGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
+
+        tbNombreGarante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbNombreGarante.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbNombreGaranteKeyTyped(evt);
             }
         });
+        jPanel2.add(tbNombreGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 245, 20));
 
-        javax.swing.GroupLayout pnlFondoBotonesLayout = new javax.swing.GroupLayout(pnlFondoBotones);
-        pnlFondoBotones.setLayout(pnlFondoBotonesLayout);
-        pnlFondoBotonesLayout.setHorizontalGroup(
-            pnlFondoBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoBotonesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlFondoBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        pnlFondoBotonesLayout.setVerticalGroup(
-            pnlFondoBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoBotonesLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(btnGuardar)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminar)
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
-                .addGap(18, 18, 18)
-                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
+        lblDniGarante.setText("Dni Del Garante");
+        jPanel2.add(lblDniGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, 23));
 
-        dgvDatos.setBackground(new java.awt.Color(0, 0, 51));
-        dgvDatos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        dgvDatos.setForeground(new java.awt.Color(255, 255, 255));
-        dgvDatos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Cuil ", "Nombre", "Apellido", "Lugar de Trabajo", "Nombre de Garante", "Dni de Garante"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        tbDniGarante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbDniGarante.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbDniGaranteKeyTyped(evt);
             }
         });
-        jScrollPane1.setViewportView(dgvDatos);
-        dgvDatos.getAccessibleContext().setAccessibleParent(null);
+        jPanel2.add(tbDniGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 210, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlFondoBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlFondoBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 840, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        InquilinoData inquilinoData = new InquilinoData();
-        inquilinoData.Eliminar(Integer.parseInt(tbCuilInquilino.getText()) );
-
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        Inquilino inquilino = new Inquilino();
-        inquilino.setCuilInquilino(Integer.parseInt(tbCuilInquilino.getText()));
-        inquilino.setNombre(tbNombre.getText());
-        inquilino.setApellido(tbApellido.getText());
-        inquilino.setLugarTrabajo(tbLugarTrabajo.getText());
-        inquilino.setNombreGarante(tbNombreGarante.getText());
-        inquilino.setDniGarante(Integer.parseInt(tbDniGarante.getText()));
-
-        InquilinoData inquilinoData = new InquilinoData();
-
-        inquilinoData.Guardar(inquilino);
-
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        InquilinoData inquilinoData = new InquilinoData();
-        Inquilino inquilino;
-
-        inquilino= inquilinoData.Buscar(Integer.parseInt(tbCuilInquilino.getText()));
-        tbCuilInquilino.setText(inquilino.getCuilInquilino()+"");
-        tbNombre.setText(inquilino.getNombre());
-        tbApellido.setText(inquilino.getApellido());
-        tbLugarTrabajo.setText(inquilino.getLugarTrabajo());
-        tbNombreGarante.setText(inquilino.getNombreGarante());
-        tbDniGarante.setText(inquilino.getDniGarante()+"");
-
-        inquilino.setCuilInquilino(Integer.parseInt(tbCuilInquilino.getText()));
-        inquilino.setNombre(tbNombre.getText());
-        inquilino.setApellido(tbApellido.getText());
-        inquilino.setLugarTrabajo(tbLugarTrabajo.getText());
-        inquilino.setNombreGarante(tbNombreGarante.getText());
-        inquilino.setDniGarante(Integer.parseInt(tbDniGarante.getText()));
-
-        inquilinoData.Modificar(inquilino);
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        InquilinoData inquilinoData = new InquilinoData();
-        Inquilino inquilino;
-
-        inquilino= inquilinoData.Buscar(Integer.parseInt(tbCuilInquilino.getText()));
-        tbCuilInquilino.setText(inquilino.getCuilInquilino()+"");
-        tbNombre.setText(inquilino.getNombre());
-        tbApellido.setText(inquilino.getApellido());
-        tbLugarTrabajo.setText(inquilino.getLugarTrabajo());
-        tbNombreGarante.setText(inquilino.getNombreGarante());
-        tbDniGarante.setText(inquilino.getDniGarante()+"");
-
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
+    
+    public void MostrarTabla()
+    {
+        InquilinoData inquilinoData = new InquilinoData(con);    
+        
+        lista = inquilinoData.ObtenerInquilino();
+        
+        BorrarFilas();
+        
+        for(Inquilino item:lista)
+        {
+            modelo.addRow(new Object[]{item.getCuilInquilino(),item.getNombre(),item.getApellido(),item.getLugarTrabajo(),item.getNombreGarante(),item.getDniGarante() });
+        }
+        
+    }
+       
+    public void Tabla()
+    {
+        List<Object> columns = new ArrayList<Object>();
+        columns.add("Cuil");
+        columns.add("Nombre");
+        columns.add("Apellido");
+        columns.add("Lugar De Trabajo");
+        columns.add("Nombre De Garante");
+        columns.add("Dni De Garante");
+        
+        for(Object item:columns)
+        {
+            modelo.addColumn(item);
+        }
+        
+        Tdatos.setModel(modelo);
+        
+    }
+    
+    public void BorrarFilas()
+    {
+        for(int a = modelo.getRowCount()-1;a>= 0;a--)
+        {
+            modelo.removeRow(a);
+        }
+    }
+    
+    
+    
     private void tbCuilInquilinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCuilInquilinoKeyTyped
         char tecla = evt.getKeyChar();
         if(tecla < '0' || tecla >'9')
@@ -408,7 +315,7 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
 
     private void tbNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNombreKeyTyped
         char tecla = evt.getKeyChar();
-        if(!Character.isAlphabetic(tecla))
+        if(!Character.isAlphabetic(tecla) && !Character.isWhitespace(tecla))
         {
             evt.consume();
         }
@@ -420,7 +327,7 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
 
     private void tbApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbApellidoKeyTyped
         char tecla = evt.getKeyChar();
-        if(!Character.isAlphabetic(tecla))
+        if(!Character.isAlphabetic(tecla) && !Character.isWhitespace(tecla))
         {
             evt.consume();
         }
@@ -431,11 +338,7 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbApellidoKeyTyped
 
     private void tbLugarTrabajoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbLugarTrabajoKeyTyped
-        char tecla = evt.getKeyChar();
-        if(!Character.isAlphabetic(tecla))
-        {
-            evt.consume();
-        }
+
         if(tbLugarTrabajo.getText().length() >= 50)
         {
             evt.consume();
@@ -444,7 +347,7 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
 
     private void tbNombreGaranteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNombreGaranteKeyTyped
         char tecla = evt.getKeyChar();
-        if(!Character.isAlphabetic(tecla))
+        if(!Character.isAlphabetic(tecla) && !Character.isWhitespace(tecla))
         {
             evt.consume();
         }
@@ -465,38 +368,226 @@ public class InquilinoVista extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_tbDniGaranteKeyTyped
+       
+    private void jlbtnNuevoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnNuevoMousePressed
+        // TODO add your handling code here:
+        tbCuilInquilino.setText("");
+        tbApellido.setText("");
+        tbNombre.setText("");
+        tbLugarTrabajo.setText("");
+        tbNombreGarante.setText("");
+        tbDniGarante.setText("");
 
-    public void CargarTabla()
-    {
-        InquilinoData inquilino = new InquilinoData();
-        List<Inquilino> lista = inquilino.Obtener();
-        
-        for(Inquilino items:lista)
-        {
-            
-        }
-        
-        
+        tbCuilInquilino.setEditable(true);
+        tbApellido.setEditable(true);
+        tbNombre.setEditable(true);
+        tbLugarTrabajo.setEditable(true);
+        tbNombreGarante.setEditable(true);
+        tbDniGarante.setEditable(true);
+
+        tbCuilInquilino.requestFocus();
+
+        jlbtnGuardar.setEnabled(true);
+        jlbtnActualizar.setEnabled(false);
+        jlbtnBorrar.setEnabled(false);
+        jlbtnNuevo.setEnabled(false);
+        jlbtnBuscar.setEnabled(false);
+        jlbtnCancelar.setEnabled(true);
+
+    }//GEN-LAST:event_jlbtnNuevoMousePressed
+
+    private void jlbtnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnGuardarMousePressed
+        // TODO add your handling code here:
+
+       inquilino=new Inquilino();
+       inquilinoData=new InquilinoData(con);
+
+        inquilino.setCuilInquilino((tbCuilInquilino.getText()));
+        inquilino.setApellido(tbApellido.getText());
+        inquilino.setNombre(tbNombre.getText());
+        inquilino.setLugarTrabajo(tbLugarTrabajo.getText());
+        inquilino.setNombreGarante((tbNombreGarante.getText()));
+        inquilino.setDniGarante(Integer.parseInt(tbDniGarante.getText()));
+
+        if((JOptionPane.showConfirmDialog(null, "Esta seguro que desea Guaradar el Inquilino : "+tbCuilInquilino.getText()+" ?", "Confirmar Guardado",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE))==0)
+{
+    inquilinoData.GuardarInquilino(inquilino);//llamamos al metodo guardar de la clase Data
     }
-    
+
+    tbCuilInquilino.setEditable(false);
+    tbApellido.setEditable(false);
+    tbNombre.setEditable(false);
+    tbLugarTrabajo.setEditable(false);
+    tbNombreGarante.setEditable(false);
+    tbDniGarante.setEditable(false);
+
+    jlbtnNuevo.setEnabled(true);
+    jlbtnGuardar.setEnabled(false);
+    jlbtnBuscar.setEnabled(true);
+
+    MostrarTabla();
+
+    }//GEN-LAST:event_jlbtnGuardarMousePressed
+
+    private void jlbtnCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnCancelarMousePressed
+        // TODO add your handling code here:
+
+        tbCuilInquilino.setText("");
+        tbApellido.setText("");
+        tbNombre.setText("");
+        tbLugarTrabajo.setText("");
+        tbNombreGarante.setText("");
+        tbDniGarante.setText("");
+
+        tbCuilInquilino.setEditable(false);
+        tbApellido.setEditable(false);
+        tbNombre.setEditable(false);
+        tbLugarTrabajo.setEditable(false);
+        tbNombreGarante.setEditable(false);
+        tbDniGarante.setEditable(false);
+
+        tbCuilInquilino.requestFocus();
+
+        jlbtnGuardar.setEnabled(false);
+        jlbtnActualizar.setEnabled(false);
+        jlbtnBorrar.setEnabled(false);
+        jlbtnNuevo.setEnabled(true);
+        jlbtnBuscar.setEnabled(true);
+        jlbtnCancelar.setEnabled(false);
+
+    }//GEN-LAST:event_jlbtnCancelarMousePressed
+
+    private void jlbtnActualizarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnActualizarMousePressed
+        // TODO add your handling code here:
+
+        if(tbCuilInquilino.getText()!=null){
+
+       inquilino=new Inquilino();
+       inquilinoData=new InquilinoData(con);
+
+            inquilino.setCuilInquilino((tbCuilInquilino.getText()));
+            inquilino.setApellido(tbApellido.getText());
+            inquilino.setNombre(tbNombre.getText());
+            inquilino.setLugarTrabajo(tbLugarTrabajo.getText());
+            inquilino.setNombreGarante((tbNombreGarante.getText()));
+            inquilino.setDniGarante(Integer.parseInt(tbDniGarante.getText()));
+
+            inquilinoData.ModificarInquilino(inquilino);
+
+            tbCuilInquilino.setEditable(false);
+            tbApellido.setEditable(false);
+            tbNombre.setEditable(false);
+            tbLugarTrabajo.setEditable(false);
+            tbNombreGarante.setEditable(false);
+            tbDniGarante.setEditable(false);
+
+        }
+        jlbtnActualizar.setEnabled(false);
+        jlbtnBorrar.setEnabled(true);
+        jlbtnNuevo.setEnabled(true);
+        jlbtnCancelar.setEnabled(false);
+
+        MostrarTabla();
+
+    }//GEN-LAST:event_jlbtnActualizarMousePressed
+
+    private void jlbtnBorrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnBorrarMousePressed
+        // TODO add your handling code here:
+
+        String id=(tbCuilInquilino.getText());
+
+        if((JOptionPane.showConfirmDialog(null, "Realmente desea Eliminar el Inquilino "+id+" ?", "Confirmar Borrado",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE))==0)
+{
+    inquilinoData.EliminarInquilino(id);
+    }
+            tbCuilInquilino.setEditable(false);
+            tbApellido.setEditable(false);
+            tbNombre.setEditable(false);
+            tbLugarTrabajo.setEditable(false);
+            tbNombreGarante.setEditable(false);
+            tbDniGarante.setEditable(false);
+
+            tbCuilInquilino.setText("");
+             tbApellido.setText("");
+            tbNombre.setText("");
+            tbLugarTrabajo.setText("");
+            tbNombreGarante.setText("");
+            tbDniGarante.setText("");
+
+            jlbtnBorrar.setEnabled(false);
+
+            MostrarTabla();
+    }//GEN-LAST:event_jlbtnBorrarMousePressed
+
+    private void jlbtnBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbtnBuscarMousePressed
+        // TODO add your handling code here:
+
+        String idUser=JOptionPane.showInputDialog ( "Introduzca un CUIL :" );
+
+        tbCuilInquilino.setText(idUser);
+
+        // int id=Integer.parseInt(jtbCuit.getText());
+        inquilino=new Inquilino();
+        inquilinoData=new InquilinoData(con);
+
+        inquilino = inquilinoData.BuscarInquilino(idUser);
+        
+
+        if(inquilino!=null){
+
+            tbCuilInquilino.setText((inquilino.getCuilInquilino()));
+            tbApellido.setText(inquilino.getApellido());
+            tbNombre.setText(inquilino.getNombre());
+            tbLugarTrabajo.setText(inquilino.getLugarTrabajo());
+            tbNombreGarante.setText((inquilino.getNombreGarante()));
+            tbDniGarante.setText(Integer.toString(inquilino.getDniGarante()));
+
+            tbCuilInquilino.setEditable(false);
+            tbApellido.setEditable(false);
+            tbNombre.setEditable(false);
+            tbLugarTrabajo.setEditable(false);
+            tbNombreGarante.setEditable(false);
+            tbDniGarante.setEditable(false);
+            
+
+            jlbtnBorrar.setEnabled(true);
+            jlbtnActualizar.setEnabled(true);
+            jlbtnNuevo.setEnabled(false);
+            jlbtnCancelar.setEnabled(true);
+        }
+    }//GEN-LAST:event_jlbtnBuscarMousePressed
+
+    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
+        // TODO add your handling code here:
+        MenuPrincipalN.jlblIcon.setVisible(true);
+        MenuPrincipalN.jlblInq.setVisible(false);
+        MenuPrincipalN.jlblInfo.setText("INFORMACION");
+        this.dispose();
+    }//GEN-LAST:event_jLabel7MousePressed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JTable Tdatos;
     private javax.swing.JTable dgvDatos;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jlbtnActualizar;
+    private javax.swing.JLabel jlbtnBorrar;
+    private javax.swing.JLabel jlbtnBuscar;
+    private javax.swing.JLabel jlbtnCancelar;
+    private javax.swing.JLabel jlbtnGuardar;
+    private javax.swing.JLabel jlbtnNuevo;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCuilInquilino;
     private javax.swing.JLabel lblDniGarante;
     private javax.swing.JLabel lblLugarGarante;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreGarante;
-    private javax.swing.JPanel pnlFondo;
-    private javax.swing.JPanel pnlFondoBotones;
     private javax.swing.JTextField tbApellido;
     private javax.swing.JTextField tbCuilInquilino;
     private javax.swing.JTextField tbDniGarante;
